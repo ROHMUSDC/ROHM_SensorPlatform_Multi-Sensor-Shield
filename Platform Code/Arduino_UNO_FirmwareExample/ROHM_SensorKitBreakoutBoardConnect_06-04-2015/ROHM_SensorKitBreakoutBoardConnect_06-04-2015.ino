@@ -1,34 +1,36 @@
 /*------------------------------------------------------------------------------
- ROHM Sensor Platform Breakout Board Sensor Return Application
+ ROHM Multi-Sensor Shield Board - Sensor Output Application
  
- This program reads the value of the connected ROHM Sensors and 
- returns the sensor output using the serial port
+ This program reads the value of the connected ROHM Sensors on the Multi-sensor Shield and 
+ returns the sensor output through the serial port
  
- Created 13 January 2015
+ Confirmed on Arduino UNO Board
+ Rework Required:
+   1. The Arduino UNO's I2C input pins are routed to A4 and A5 on the Arduino UNO board.
+       Thus, to make sure this does not conflict on our board, we need to remove jumper pins connected to A4/A5
+       AKA. REMOVE R31 and R32
+   2. Similarly above, since we removed the connection for A4, we need to connect ADC1 (or UV Sensor output) to the Arduino.
+       Thus, this code expects for A4 to be re-routed to A0.
+       We do this by removing R27 and by routing the top resistor pad of R31 to the bottom resistor pad of R27 (
+ 
+First Revision Posted to Git on 15 June 2015
  by ROHM USDC Applications Engineering Team
- 
- Revision 01: Changed the pin functionality of the board to work with the Arduino "shield" board 
+
 ------------------------------------------------------------------------------*/
 
 // ----- Debugging Definitions -----
-#define AnalogTemp
-#define AnalogUV
-#define HallSen
-#define KMX62
-#define Pressure
-#define ALSProx
-#define Color
-#define KX022
+#define AnalogTemp  //BDE0600G
+#define AnalogUV    //ML8511
+#define HallSen     //BU52014
+#define KMX62       //KMX62
+#define Pressure    //BM1383GLV
+#define ALSProx     //RPR-0521
+#define Color       //BH1745
+#define KX022       //KX022
 
 // ----- Included Files -----
 //#include <Wire.h>         //Default I2C Library
 
-/*  //Original Definition
-#define SCL_PIN 4  //A5       //Note that if you are using the Accel/Mag Sensor, you will need to download and
-#define SCL_PORT PORTD    //install the "SoftI2CMaster" as "Wire" does not support repeated start...
-#define SDA_PIN 5  //A4         //References:
-#define SDA_PORT PORTD    //  http://playground.arduino.cc/Main/SoftwareI2CLibrary
-*/
 #define SCL_PIN 5  //A5       //Note that if you are using the Accel/Mag Sensor, you will need to download and
 #define SCL_PORT PORTC    //install the "SoftI2CMaster" as "Wire" does not support repeated start...
 #define SDA_PIN 4  //A4         //References:
@@ -41,20 +43,29 @@
 // ----- Globals -----
 
 //ADC Globals - Analog ALS, Temp, UV
+#ifdef AnalogTemp
 int ADCpin_AnalogTemp = A2;
+#endif
+
+#ifdef AnalogUV
 int ADCpin_AnalogUV = A0;
+#endif
+
 int sensorValue = 0;
 float sensorConvert = 0;
 
 //Digital Input Globals - Hall Sensor
+#ifdef HallSen
 int Hall_Out0 = 0;
 int Hall_Out1 = 1;
+#endif
 
 //I2C globals (using SoftI2CMaster libary) - MEMs Kionix Sensor 
 int I2C_check = 0;
-int KMX62_DeviceAddress = 0x1C;  //this is the 8bit address, 7bit address = 0x0E
 
-  //Accel Portion
+#ifdef KMX62
+int KMX62_DeviceAddress = 0x1C;  //this is the 8bit address, 7bit address = 0x0E
+//Accel Portion
 int MEMS_Accel_Xout_highByte = 0;
 int MEMS_Accel_Xout_lowByte = 0;
 int MEMS_Accel_Yout_highByte = 0;
@@ -67,8 +78,7 @@ int MEMS_Accel_Zout = 0;
 float MEMS_Accel_Conv_Xout = 0;
 float MEMS_Accel_Conv_Yout = 0;
 float MEMS_Accel_Conv_Zout = 0;
-
-  //Mag Sensor Portion
+//Mag Sensor Portion
 int MEMS_Mag_Xout_highByte = 0;
 int MEMS_Mag_Xout_lowByte = 0;
 int MEMS_Mag_Yout_highByte = 0;
@@ -81,6 +91,7 @@ int MEMS_Mag_Zout = 0;
 float MEMS_Mag_Conv_Xout = 0;
 float MEMS_Mag_Conv_Yout = 0;
 float MEMS_Mag_Conv_Zout = 0;
+#endif
 
 #ifdef Pressure
 int BM1383_DeviceAddress = 0xBA;  //this is the 8bit address, 7bit address = 0x5D
@@ -220,7 +231,9 @@ void setup()
    //----- Start Initialization for RPR-0521 ALS/PROX Sensor -----
 #ifdef ALSProx
   //RPR-0521 Init Sequence
-  // 1. Mode Control (0x41), write (0xC6): ALS EN, PS EN, 100ms measurement for ALS and PS
+  // 1. Mode Control (0x41), write (0xC6): ALS EN, PS EN, 100ms measurement for ALS and PS, PS_PULSE=1
+  // 2. ALS_PS_CONTROL (0x42), write (0x03): LED Current = 200mA
+  // 3. PERSIST (0x43), write (0x20): PS Gain x4  
   
   i2c_start(RPR0521_DeviceAddress);  //This needs the 8 bit address (7bit Device Address + RW bit... Read = 1, Write = 0)
   i2c_write(0x41);
@@ -236,12 +249,17 @@ void setup()
   i2c_write(0x43);
   i2c_write(0x20);
   i2c_stop();
-
 #endif  
   //----- END Initialization for RPR-0521 ALS/PROX Sensor -----
 
   //----- Start Initialization for BH1745 Color Sensor -----
-  #ifdef Color
+#ifdef Color
+  //BH1745 Init Sequence
+  // 1. Persistence (0x61), write (0x03)
+  // 2. Mode Control 1 (0x41), write (0x00)
+  // 3. Mode Control 2 (0x42), write (0x92)
+  // 4. Mode Control 3 (0x43), write (0x02)
+  
   i2c_start(BH1745_DeviceAddress);  //This needs the 8 bit address (7bit Device Address + RW bit... Read = 1, Write = 0)
   i2c_write(0x61);
   i2c_write(0x03);
@@ -261,15 +279,17 @@ void setup()
   i2c_write(0x43);
   i2c_write(0x02);
   i2c_stop();
-  #endif
-  //----- END Initialization for BH175 Color Sensor -----
+
+#endif
+  //----- END Initialization for BH1745 Color Sensor -----
   
-  //----- Start Initialization for KX022 Color Sensor -----  
-  #ifdef KX022
+  //----- Start Initialization for KX022 Accel Sensor -----  
+#ifdef KX022
   //1. CNTL1 (0x18) loaded with 0x41
   //2. ODCNTL (0x1B) loaded with 0x02
   //3. CNTL3 (0x1A) loaded with 0xD8
   //4. TILT_TIMER (0x22) loaded with 0x01
+  //5. CNTL1 (0x18) loaded with 0xC1 (Enable bit on)
   
   i2c_start(KX022_DeviceAddress);  //This needs the 8 bit address (7bit Device Address + RW bit... Read = 1, Write = 0)
   i2c_write(0x18);
@@ -295,8 +315,7 @@ void setup()
   i2c_write(0x18);
   i2c_write(0xC1);
   i2c_stop();
-
-  #endif
+#endif
 
   //----- END Initialization for KX022 Color Sensor -----  
 }
@@ -312,7 +331,7 @@ void loop()
   //---------- Start Code for Reading BDE0600G Analog Temperature Sensor ----------
   #ifdef AnalogTemp
 
-  //----- Start ADC Read from Port A1 ----
+  //----- Start ADC Read from Port A3 ----
   //Notes on Arduino ADC
   //Arduino uses an 5V ADC Reference Voltage; thus, we will need to scale this 
   //to 3.3V Levels to safely operate the sensors
@@ -350,7 +369,7 @@ void loop()
   //---------- Start Code for Reading ML8511 Analog UV Sensor ----------
   #ifdef AnalogUV
 
-  //----- Start ADC Read from Port A2 ----
+  //----- Start ADC Read from Port A0 ----
   //Notes on Arduino ADC
   //Arduino uses an 5V ADC Reference Voltage; thus, we will need to scale this 
   //to 3.3V Levels to safely operate the sensors
