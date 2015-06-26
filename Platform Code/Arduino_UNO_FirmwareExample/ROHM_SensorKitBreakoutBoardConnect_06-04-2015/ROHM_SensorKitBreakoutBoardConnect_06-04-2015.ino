@@ -155,7 +155,7 @@ int BH1745_GRN_OUT = 0;
 int BH1745_BLU_OUT = 0;
 #endif
 
-#ifdef KX022
+#ifdef kx122
 int KX022_DeviceAddress = 0x3C;  //this is the 8bit address, 7bit address = 0x1E
 int KX022_Accel_X_LB = 0;
 int KX022_Accel_X_HB = 0;
@@ -299,7 +299,7 @@ void setup()
   //----- END Initialization for BH1745 Color Sensor -----
   
   //----- Start Initialization for KX022 Accel Sensor -----  
-#ifdef KX022
+#ifdef kx122
   //1. CNTL1 (0x18) loaded with 0x41
   //2. ODCNTL (0x1B) loaded with 0x02
   //3. CNTL3 (0x1A) loaded with 0xD8
@@ -700,7 +700,7 @@ void loop()
   #endif
   //----- END Reading for Color Sensor -----
 
-#ifdef KX022
+#ifdef kx122
   i2c_start(KX022_DeviceAddress);
   i2c_write(0x06);
   i2c_rep_start(KX022_DeviceAddress | 1);  // Or-ed with "1" for read bit

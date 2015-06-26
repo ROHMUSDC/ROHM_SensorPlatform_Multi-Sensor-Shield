@@ -14,7 +14,7 @@
 ----
 ### Software License
 The following are categorized under the GNU General Public License, Version 3:
-* Firmware Design. Includes LAPIS ML610Q112 MCU C code
+* Firmware Design. Includes LAPIS ML610Q112 MCU main.c C code
 
 Copyright (C) 2015 USDC Applications Engineering Team, ROHM Semiconductor
 
