@@ -38,7 +38,15 @@
          "BREAKOUT BOARDS")
       (Path "Design Resources" "Library")
       (Path "Design Resources" "Library" ".\bm1422gmv.olb")
-      (Select "Design Resources"))
+      (Select "Design Resources"
+         ".\sensorkit-multisensorshield_board_sch_rev01_2015-05-18.dsn"
+         "BREAKOUT BOARDS" "P01: RevisionHist")
+      (Select "Design Resources"
+         ".\sensorkit-multisensorshield_board_sch_rev01_2015-05-18.dsn"
+         "BREAKOUT BOARDS" "P02: Connection Interface")
+      (Select "Design Resources"
+         ".\sensorkit-multisensorshield_board_sch_rev01_2015-05-18.dsn"
+         "BREAKOUT BOARDS" "P03: Sensors"))
     (HierarchyView)
     (Doc
       (Type "COrCapturePMDoc")
@@ -48,8 +56,8 @@
     (Doc
       (Type "COrSchematicDoc")
       (Frame
-        (Placement "44 0 1 -1 -1 -8 -30 50 1696 50 569")
-        (Scroll "-252 0")
+        (Placement "44 2 3 -1 -1 -8 -30 50 1696 50 569")
+        (Scroll "-372 -7")
         (Zoom "72")
         (Occurrence "/"))
       (Path
@@ -60,7 +68,7 @@
       (Type "COrSchematicDoc")
       (Frame
         (Placement "44 0 1 -1 -1 -8 -30 75 1721 75 594")
-        (Scroll "-39 0")
+        (Scroll "-39 12")
         (Zoom "100")
         (Occurrence "/"))
       (Path
@@ -70,9 +78,9 @@
     (Doc
       (Type "COrSchematicDoc")
       (Frame
-        (Placement "44 2 3 -1 -1 -8 -30 100 1746 100 619")
-        (Scroll "-455 -6")
-        (Zoom "46")
+        (Placement "44 0 1 -1 -1 -8 -30 100 1746 100 619")
+        (Scroll "9 0")
+        (Zoom "92")
         (Occurrence "/"))
       (Path
          "C:\USERS\FLEE\DESKTOP\APPLICATIONS DEVELOPMENT\GITHUB\ROHM_SENSORPLATFORM_MULTI-SENSOR-SHIELD\HW SOURCE FILES\SCHEMATIC_BOM\SENSORKIT-MULTISENSORSHIELD_BOARD_SCH_REV01_2015-05-18.DSN")
