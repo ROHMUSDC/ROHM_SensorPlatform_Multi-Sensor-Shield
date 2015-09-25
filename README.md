@@ -6,10 +6,18 @@
 
 ----
 ### Repository Contents
-* NOTE: As of 6-15-2015, this is still a work in progress; but wanted to start the repository.  See "issues" section for work to be done.
 * Documentation Folder: Contains HW PDF files, Sensor Documentation, and Rough Specifications.  Application Note and Platform Guides will be coming soon!
-* HW Source Files: Contains the HW Source OrCad Schematic and Allegro Layout Files for this kit.  Also contains Gerber output. 
-* Platform Code: Contains the firmware for the difference sources this board can be used on.  As of 6-15, this contains work for LAPIS Sensor Platform Board, Arduino, and LPCXpresso54102
+* HW Source Files: Contains the HW Source OrCad Schematic and Allegro Layout Files for this kit.  Also contains Gerber output. * Platform Code: Contains the firmware for the difference sources this board can be used on.  As of 6-15, this contains work for LAPIS Sensor Platform Board, Arduino, and LPCXpresso54102
+
+----
+### Current Supported Platforms
+* Arduino UNO, Firmware Example and Documentation (This is our recommended starting point)
+* LPCXpresso54102, Firmware Example Only
+* Nordic Semiconductor nRF51-DK, Firmware Example and Documentation (Recommended for BTLE Low Power Sensor Applications)
+    *  MBED Repository Page: https://developer.mbed.org/teams/ROHMUSDC/code/Nordic_UART_TEMPLATE_ROHM/
+* ROHM Sensor Platform Kit: Firmware Example  Only
+* MultiTech Dragonfly and MTUDK2, Firmware Example and Documentation (Recommended for Cellular Network Compatibility Applications)
+    *  MBED Repository Page: https://developer.mbed.org/teams/ROHMUSDC/code/MultiTech_DragonFly_ROHMSensorShield_Sam/
 
 ----
 ### Software License

@@ -377,7 +377,7 @@ if (m_ble.getGapState().connected) {
     }
 #endif
 
-#ifdef DigitalALS
+#ifdef DigitalALS	//This shouldn't be here...
     if (m_ble.getGapState().connected) {
         i2c.read(ALS_addr_r, ALS_ReturnData_raw, 2);
         ALS_Return = (ALS_ReturnData_raw[0]<<8) | ALS_ReturnData_raw[1];
