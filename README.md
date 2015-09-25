@@ -13,10 +13,13 @@
 ### Current Supported Platforms
 * Arduino UNO, Firmware Example and Documentation (This is our recommended starting point)
 * LPCXpresso54102, Firmware Example Only
-* Nordic Semiconductor nRF51-DK, Firmware Example and Documentation (Recommended for BTLE Low Power Sensor Applications)
+* Nordic Semiconductor nRF51-DK, Firmware Example and Documentation 
+	*  Recommended for BTLE Low Power Sensor Applications
     *  MBED Repository Page: https://developer.mbed.org/teams/ROHMUSDC/code/Nordic_UART_TEMPLATE_ROHM/
 * ROHM Sensor Platform Kit: Firmware Example  Only
-* MultiTech Dragonfly and MTUDK2, Firmware Example and Documentation (Recommended for Cellular Network Compatibility Applications)
+	*  ROHM Sensor Platform Repository: https://github.com/ROHMUSDC/ROHMSensorPlatformEVK
+* MultiTech Dragonfly and MTUDK2, Firmware Example and Documentation
+	*  Recommended for Cellular Network Compatibility Applications
     *  MBED Repository Page: https://developer.mbed.org/teams/ROHMUSDC/code/MultiTech_DragonFly_ROHMSensorShield_Sam/
 
 ----
