@@ -1,4 +1,5 @@
 # ROHM Multi-Sensor Shield Public Repository
+* Applicable Part Number: ROHM_SENSORSHLD0-EVK-101, ROHM_SENSORSHLD1-EVK-101
 * Description:  A single board containing all ROHM Sensors with a common platform pin out (standard Arduino header)
 * Developer: USDC Applications Engineering Team, ROHM Semiconductor
 * Date Started: March 2015
@@ -22,6 +23,15 @@
 	*  Recommended for Cellular Network Compatibility Applications
     *  MBED Repository Page: https://developer.mbed.org/teams/ROHMUSDC/code/MultiTech_DragonFly_ROHMSensorShield_Sam/
 
+----
+### FAQ
+* Question:
+	* What is the difference between ROHM_SENSORSHLD0-EVK-101 and ROHM_SENSORSHLD1-EVK-101?
+* Answer:
+	* Removed Erroneous Jumpers
+	* Removed J5 to J11 and adjusted routing for J1 to J4
+	* Added ROHM BM1422GMV Magnetometer, 1.8V level shifter, and 1.8V LDO (for Magnetometer usage)
+	
 ----
 ### Software License
 The following are categorized under the GNU General Public License, Version 3:
