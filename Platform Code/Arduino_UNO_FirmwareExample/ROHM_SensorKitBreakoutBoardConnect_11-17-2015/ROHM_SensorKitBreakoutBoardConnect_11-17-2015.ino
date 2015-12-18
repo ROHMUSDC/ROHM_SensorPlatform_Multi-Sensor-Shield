@@ -41,7 +41,8 @@ First Revision Posted to Git on 15 June 2015
 #define Pressure    //BM1383GLV
 #define ALSProx     //RPR-0521
 #define Color       //BH1745
-#define KX022       //KX022
+#define KX122       //KX122
+#define KXG03       //KXG03
 
 // ----- Included Files -----
 //#include <Wire.h>         //Default I2C Library
@@ -155,21 +156,65 @@ int BH1745_GRN_OUT = 0;
 int BH1745_BLU_OUT = 0;
 #endif
 
-#ifdef kx122
-int KX022_DeviceAddress = 0x3C;  //this is the 8bit address, 7bit address = 0x1E
-int KX022_Accel_X_LB = 0;
-int KX022_Accel_X_HB = 0;
-int KX022_Accel_Y_LB = 0;
-int KX022_Accel_Y_HB = 0;
-int KX022_Accel_Z_LB = 0;
-int KX022_Accel_Z_HB = 0;
-int KX022_Accel_X_RawOUT = 0;
-int KX022_Accel_Y_RawOUT = 0;
-int KX022_Accel_Z_RawOUT = 0;
-float KX022_Accel_X_OUT = 0;
-float KX022_Accel_Y_OUT = 0;
-float KX022_Accel_Z_OUT = 0;
+#ifdef KX122
+int KX122_DeviceAddress = 0x3C;  //this is the 8bit address, 7bit address = 0x1E
+int KX122_Accel_X_LB = 0;
+int KX122_Accel_X_HB = 0;
+int KX122_Accel_Y_LB = 0;
+int KX122_Accel_Y_HB = 0;
+int KX122_Accel_Z_LB = 0;
+int KX122_Accel_Z_HB = 0;
+int KX122_Accel_X_RawOUT = 0;
+int KX122_Accel_Y_RawOUT = 0;
+int KX122_Accel_Z_RawOUT = 0;
+float KX122_Accel_X_OUT = 0;
+float KX122_Accel_Y_OUT = 0;
+float KX122_Accel_Z_OUT = 0;
 #endif
+
+
+#ifdef KXG03
+int         i = 11;
+int         t = 1;
+short int   aveX = 0;
+short int   aveX2 = 0;
+short int   aveX3 = 0;
+short int   aveY = 0;
+short int   aveY2 = 0;
+short int   aveY3 = 0;
+short int   aveZ = 0;
+short int   aveZ2 = 0;
+short int   aveZ3 = 0;
+int KXG03_DeviceAddress = 0x9C;  //this is the 8bit address, 7bit address = 0x4E
+int KXG03_Gyro_X_LB = 0;
+int KXG03_Gyro_X_HB = 0;
+int KXG03_Gyro_Y_LB = 0;
+int KXG03_Gyro_Y_HB = 0;
+int KXG03_Gyro_Z_LB = 0;
+int KXG03_Gyro_Z_HB = 0;
+float KXG03_Gyro_X = 0;
+float KXG03_Gyro_Y = 0;                               
+float KXG03_Gyro_Z = 0;
+short int KXG03_Gyro_X_RawOUT = 0;
+short int KXG03_Gyro_Y_RawOUT = 0; 
+short int KXG03_Gyro_Z_RawOUT = 0;
+short int KXG03_Gyro_X_RawOUT2 = 0;
+short int KXG03_Gyro_Y_RawOUT2 = 0; 
+short int KXG03_Gyro_Z_RawOUT2 = 0; 
+int KXG03_Accel_X_LB = 0;
+int KXG03_Accel_X_HB = 0;
+int KXG03_Accel_Y_LB = 0;
+int KXG03_Accel_Y_HB = 0;
+int KXG03_Accel_Z_LB = 0;
+int KXG03_Accel_Z_HB = 0; 
+float KXG03_Accel_X = 0;
+float KXG03_Accel_Y = 0;                               
+float KXG03_Accel_Z = 0;  
+short int KXG03_Accel_X_RawOUT = 0;
+short int KXG03_Accel_Y_RawOUT = 0;
+short int KXG03_Accel_Z_RawOUT = 0; 
+#endif
+
 
 void setup()
 {
@@ -195,9 +240,9 @@ void setup()
   pinMode(3, INPUT_PULLUP);
   //pinMode(13, INPUT_PULLUP);
  
- //----- Start Initialization for KMX061 Digital Accel/Mag Sensor -----
+ //----- Start Initialization for KMX62 Digital Accel/Mag Sensor -----
  #ifdef KMX62
- //KMX61 Init Sequence
+ //KMX62 Init Sequence
   // 1. Standby Register (0x29), write 0x03 (Turn Off)
   // 2. Self Test Register (0x60), write 0x00
   // 3. Control Register 1 (0x2A), write 0x13
@@ -216,11 +261,11 @@ void setup()
   i2c_write(0x5F);
   i2c_stop();
  #endif
- //----- END Initialization for KMX061 Digital Accel/Mag Sensor -----
+ //----- END Initialization for KMX62 Digital Accel/Mag Sensor -----
 
  //----- Start Initialization for BM1383 Digital Pressure Sensor -----
  #ifdef Pressure
-  //BM1382GLV Init Sequence
+  //BM1383GLV Init Sequence
   // 1. PWR_DOWN (0x12), write (0x01)
   // 1. SLEEP (0x13), write (0x01)
   // 2. Mode Control (0x14), write (0xC4)
@@ -298,41 +343,87 @@ void setup()
 #endif
   //----- END Initialization for BH1745 Color Sensor -----
   
-  //----- Start Initialization for KX022 Accel Sensor -----  
-#ifdef kx122
+  //----- Start Initialization for KX122 Accel Sensor -----  
+#ifdef KX122
   //1. CNTL1 (0x18) loaded with 0x41
   //2. ODCNTL (0x1B) loaded with 0x02
   //3. CNTL3 (0x1A) loaded with 0xD8
   //4. TILT_TIMER (0x22) loaded with 0x01
   //5. CNTL1 (0x18) loaded with 0xC1 (Enable bit on)
   
-  i2c_start(KX022_DeviceAddress);  //This needs the 8 bit address (7bit Device Address + RW bit... Read = 1, Write = 0)
+  i2c_start(KX122_DeviceAddress);  //This needs the 8 bit address (7bit Device Address + RW bit... Read = 1, Write = 0)
   i2c_write(0x18);
   i2c_write(0x41);
   i2c_stop();
   
-  i2c_start(KX022_DeviceAddress);  //This needs the 8 bit address (7bit Device Address + RW bit... Read = 1, Write = 0)
+  i2c_start(KX122_DeviceAddress);  //This needs the 8 bit address (7bit Device Address + RW bit... Read = 1, Write = 0)
   i2c_write(0x1B);
   i2c_write(0x02);
   i2c_stop();
   
-  i2c_start(KX022_DeviceAddress);  //This needs the 8 bit address (7bit Device Address + RW bit... Read = 1, Write = 0)
+  i2c_start(KX122_DeviceAddress);  //This needs the 8 bit address (7bit Device Address + RW bit... Read = 1, Write = 0)
   i2c_write(0x1A);
   i2c_write(0xD8);
   i2c_stop();
 
-  i2c_start(KX022_DeviceAddress);  //This needs the 8 bit address (7bit Device Address + RW bit... Read = 1, Write = 0)
+  i2c_start(KX122_DeviceAddress);  //This needs the 8 bit address (7bit Device Address + RW bit... Read = 1, Write = 0)
   i2c_write(0x22);
   i2c_write(0x01);
   i2c_stop();
   
-  i2c_start(KX022_DeviceAddress);  //This needs the 8 bit address (7bit Device Address + RW bit... Read = 1, Write = 0)
+  i2c_start(KX122_DeviceAddress);  //This needs the 8 bit address (7bit Device Address + RW bit... Read = 1, Write = 0)
   i2c_write(0x18);
   i2c_write(0xC1);
   i2c_stop();
 #endif
+  //----- END Initialization for KX122 Accel Sensor -----
+  
+  //----- Start Initialization for KXG03 Gyro Sensor -----
+#ifdef KXG03
+  //1. STBY REG (0x43) loaded with 0xEF
 
-  //----- END Initialization for KX022 Color Sensor -----  
+  i2c_start(KXG03_DeviceAddress);  //This needs the 8 bit address (7bit Device Address + RW bit... Read = 1, Write = 0)
+  i2c_write(0x43);
+  i2c_write(0x00);
+  i2c_stop();
+
+  //i2c_start(KXG03_DeviceAddress);  //This needs the 8 bit address (7bit Device Address + RW bit... Read = 1, Write = 0)
+  //i2c_write(0x41);
+  //i2c_write(0x06);
+  //i2c_stop();
+
+  //i2c_start(KXG03_DeviceAddress);  //This needs the 8 bit address (7bit Device Address + RW bit... Read = 1, Write = 0)
+  //i2c_write(0x43);
+  //i2c_write(0xED);
+  //i2c_stop();
+
+  /*
+  //2. STBY REG (0x43) loaded with 0xEF
+
+  i2c_start(KXG03_DeviceAddress);  //This needs the 8 bit address (7bit Device Address + RW bit... Read = 1, Write = 0)
+  i2c_write(0x43);
+  i2c_write(0xEF);
+  i2c_stop();
+
+  i2c_start(KXG03_DeviceAddress);  //This needs the 8 bit address (7bit Device Address + RW bit... Read = 1, Write = 0)
+  i2c_write(0x3E);
+  i2c_write(0xD6);
+  i2c_stop();
+
+  i2c_start(KXG03_DeviceAddress);  //This needs the 8 bit address (7bit Device Address + RW bit... Read = 1, Write = 0)
+  i2c_write(0x40);
+  i2c_write(0x00);
+  i2c_stop();
+
+  i2c_start(KXG03_DeviceAddress);  //This needs the 8 bit address (7bit Device Address + RW bit... Read = 1, Write = 0)
+  i2c_write(0x43);
+  i2c_write(0xEE);
+  i2c_stop();
+  */
+
+#endif
+  //----- END Initialization for KXG03 Gyro Sensor -----  
+
 }
 
 void loop()
@@ -346,7 +437,7 @@ void loop()
   //---------- Start Code for Reading BDE0600G Analog Temperature Sensor ----------
   #ifdef AnalogTemp
 
-  //----- Start ADC Read from Port A3 ----
+  //----- Start ADC Read from Port A2 ----
   //Notes on Arduino ADC
   //Arduino uses an 5V ADC Reference Voltage; thus, we will need to scale this 
   //to 3.3V Levels to safely operate the sensors
@@ -421,8 +512,8 @@ void loop()
   #ifdef HallSen
   //Hardware Connection
   //For the Hall Sensor, we only need to monitor digital inputs for OUT1 and OUT2 Pins of the Hall Sensor
-  //Connect Pin1 of Hall Sensor Header U111 to Arduino Pin7
-  //Connect Pin2 of Hall Sensor Header U111 to Arduino Pin8
+  //Connect Pin1 of Hall Sensor Header U111 to Arduino Pin2
+  //Connect Pin5 of Hall Sensor Header U111 to Arduino Pin3
   Hall_Out0 = digitalRead(2);
   Serial.write("BU52011HFV South Detect = ");
   Serial.print(Hall_Out0);
@@ -441,10 +532,10 @@ void loop()
   #ifdef KMX62
   // -- Notes on Arduino I2C Connection --
   //I2C is built in using using the "wire" library
-  //Uno, Ethernet	A4 (SDA), A5 (SCL) [UNO - THIS is the platform we are using]
-  //Mega2560	        20 (SDA), 21 (SCL)
-  //Leonardo	        2  (SDA), 3  (SCL)
-  //Due	                20 (SDA), 21 (SCL), SDA1, SCL1
+  //Uno, Ethernet  A4 (SDA), A5 (SCL) [UNO - THIS is the platform we are using]
+  //Mega2560          20 (SDA), 21 (SCL)
+  //Leonardo          2  (SDA), 3  (SCL)
+  //Due                 20 (SDA), 21 (SCL), SDA1, SCL1
   
   // -- Notes on ROHM KMX62 Accel/Mag Sensor --
   //Device Address = 0x0Eu
@@ -514,14 +605,17 @@ void loop()
 
   Serial.write("KMX62 Accel Xout = ");
   Serial.print(MEMS_Accel_Conv_Xout);
+  Serial.write(" g");
   Serial.write(0x0A);  //Print Line Feed
   Serial.write(0x0D);  //Print Carrage Return
   Serial.write("KMX62 Accel Yout = ");
   Serial.print(MEMS_Accel_Conv_Yout);
+  Serial.write(" g");
   Serial.write(0x0A);  //Print Line Feed
   Serial.write(0x0D);  //Print Carrage Return  
   Serial.write("KMX62 Accel Zout = ");
   Serial.print(MEMS_Accel_Conv_Zout);
+  Serial.write(" g");
   Serial.write(0x0A);  //Print Line Feed
   Serial.write(0x0D);  //Print Carrage Return  
   
@@ -568,14 +662,17 @@ void loop()
 
   Serial.write("KMX62 Mag Xout = ");
   Serial.print(MEMS_Mag_Conv_Xout);
+  Serial.write(" uT");
   Serial.write(0x0A);  //Print Line Feed
   Serial.write(0x0D);  //Print Carrage Return
   Serial.write("KMX62 Mag Yout = ");
   Serial.print(MEMS_Mag_Conv_Yout);
+  Serial.write(" uT");
   Serial.write(0x0A);  //Print Line Feed
   Serial.write(0x0D);  //Print Carrage Return  
   Serial.write("KMX62 Mag Zout = ");
   Serial.print(MEMS_Mag_Conv_Zout);
+  Serial.write(" uT");
   Serial.write(0x0A);  //Print Line Feed
   Serial.write(0x0D);  //Print Carrage Return  
   
@@ -606,17 +703,19 @@ void loop()
  
   Serial.write("BM1383 (Temp) = ");
   Serial.print(BM1383_Temp_Conv_Out);
+  Serial.write(" degC");
   Serial.write(0x0A);  //Print Line Feed
   Serial.write(0x0D);  //Print Carrage Return
   Serial.write("BM1383 (Pres) = ");
   Serial.print(BM1383_Pres_Conv_Out);
+  Serial.write(" hPa");
   Serial.write(0x0A);  //Print Line Feed
   Serial.write(0x0D);  //Print Carrage Return
   
    #endif
-  //---------- END Code for Reading KMX62 BM1383 Pressure Sensor ----------    
+  //---------- END Code for Reading BM1383 Pressure Sensor ----------    
 
-   //----- Start Reading for RPR-0521 ALS/PROX Sensor -----
+   //----- Start Code for Reading RPR-0521 ALS/PROX Sensor -----
   #ifdef ALSProx
 
   // Start Getting Data from ALS/PROX Sensor
@@ -655,17 +754,19 @@ void loop()
   }
   Serial.write("RPR-0521 (Prox) = ");
   Serial.print(RPR0521_PS_RAWOUT);
+  Serial.write(" ADC Counts");
   Serial.write(0x0A);  //Print Line Feed
   Serial.write(0x0D);  //Print Carrage Return
   Serial.write("RPR-0521 (ALS)= ");
   Serial.print(RPR0521_ALS_OUT);
+  Serial.write(" lx");
   Serial.write(0x0A);  //Print Line Feed
   Serial.write(0x0D);  //Print Carrage Return
   
   #endif  
-  //----- END Reading for RPR-0521 ALS/PROX Sensor -----
+  //----- END Code for Reading RPR-0521 ALS/PROX Sensor -----
 
-  //----- START Reading for Color Sensor -----
+  //----- START Code for Reading Color Sensor -----
   #ifdef Color
 
   // Start Getting Data from COLOR Sensor
@@ -686,55 +787,186 @@ void loop()
   
   Serial.write("BH1745 (Red) = ");
   Serial.print(BH1745_RED_OUT);
+  Serial.write(" ADC Counts");
   Serial.write(0x0A);  //Print Line Feed
   Serial.write(0x0D);  //Print Carrage Return
   Serial.write("BH1745 (Green) = ");
   Serial.print(BH1745_GRN_OUT);
+  Serial.write(" ADC Counts");
   Serial.write(0x0A);  //Print Line Feed
   Serial.write(0x0D);  //Print Carrage Return
   Serial.write("BH1745 (Blue) = ");
   Serial.print(BH1745_BLU_OUT);
+  Serial.write(" ADC Counts");
   Serial.write(0x0A);  //Print Line Feed
   Serial.write(0x0D);  //Print Carrage Return
   
   #endif
-  //----- END Reading for Color Sensor -----
-
-#ifdef kx122
-  i2c_start(KX022_DeviceAddress);
+  //----- END Code for Reading Color Sensor -----
+  
+  //----- START Code for Reading KX122 Accel Sensor -----
+#ifdef KX122
+  i2c_start(KX122_DeviceAddress);
   i2c_write(0x06);
-  i2c_rep_start(KX022_DeviceAddress | 1);  // Or-ed with "1" for read bit
-  KX022_Accel_X_LB = i2c_read(false);
-  KX022_Accel_X_HB = i2c_read(false);
-  KX022_Accel_Y_LB = i2c_read(false);
-  KX022_Accel_Y_HB = i2c_read(false);
-  KX022_Accel_Z_LB = i2c_read(false);
-  KX022_Accel_Z_HB = i2c_read(true);
+  i2c_rep_start(KX122_DeviceAddress | 1);  // Or-ed with "1" for read bit
+  KX122_Accel_X_LB = i2c_read(false);
+  KX122_Accel_X_HB = i2c_read(false);
+  KX122_Accel_Y_LB = i2c_read(false);
+  KX122_Accel_Y_HB = i2c_read(false);
+  KX122_Accel_Z_LB = i2c_read(false);
+  KX122_Accel_Z_HB = i2c_read(true);
   i2c_stop();
 
-  KX022_Accel_X_RawOUT = (KX022_Accel_X_HB<<8) | (KX022_Accel_X_LB);
-  KX022_Accel_Y_RawOUT = (KX022_Accel_Y_HB<<8) | (KX022_Accel_Y_LB);
-  KX022_Accel_Z_RawOUT = (KX022_Accel_Z_HB<<8) | (KX022_Accel_Z_LB);
+  KX122_Accel_X_RawOUT = (KX122_Accel_X_HB<<8) | (KX122_Accel_X_LB);
+  KX122_Accel_Y_RawOUT = (KX122_Accel_Y_HB<<8) | (KX122_Accel_Y_LB);
+  KX122_Accel_Z_RawOUT = (KX122_Accel_Z_HB<<8) | (KX122_Accel_Z_LB);
 
-  KX022_Accel_X_OUT = (float)KX022_Accel_X_RawOUT / 16384;
-  KX022_Accel_Y_OUT = (float)KX022_Accel_Y_RawOUT / 16384;
-  KX022_Accel_Z_OUT = (float)KX022_Accel_Z_RawOUT / 16384;
+  KX122_Accel_X_OUT = (float)KX122_Accel_X_RawOUT / 16384;
+  KX122_Accel_Y_OUT = (float)KX122_Accel_Y_RawOUT / 16384;
+  KX122_Accel_Z_OUT = (float)KX122_Accel_Z_RawOUT / 16384;
   
   Serial.write("KX122 (X) = ");
-  Serial.print(KX022_Accel_X_OUT);
+  Serial.print(KX122_Accel_X_OUT);
+  Serial.write(" g");
   Serial.write(0x0A);  //Print Line Feed
   Serial.write(0x0D);  //Print Carrage Return
   Serial.write("KX122 (Y) = ");
-  Serial.print(KX022_Accel_Y_OUT);
+  Serial.print(KX122_Accel_Y_OUT);
+  Serial.write(" g");
   Serial.write(0x0A);  //Print Line Feed
   Serial.write(0x0D);  //Print Carrage Return
   Serial.write("KX122 (Z) = ");
-  Serial.print(KX022_Accel_Z_OUT);
+  Serial.print(KX122_Accel_Z_OUT);
+  Serial.write(" g");
   Serial.write(0x0A);  //Print Line Feed
   Serial.write(0x0D);  //Print Carrage Return
 
 #endif
+  //----- END Code for Reading KX122 Accel Sensor -----
+  
+  //----- START Code for Reading KXG03 Gyro Sensor -----
+#ifdef KXG03
 
+  // Calibration for offset data
+if (t == 1){
+  int i = 11;
+  while(--i){
+  i2c_start(KXG03_DeviceAddress);
+  i2c_write(0x02);
+  i2c_rep_start(KXG03_DeviceAddress | 1);
+  KXG03_Gyro_X_LB = i2c_read(false);
+  KXG03_Gyro_X_HB = i2c_read(false);
+  KXG03_Gyro_Y_LB = i2c_read(false);
+  KXG03_Gyro_Y_HB = i2c_read(false);
+  KXG03_Gyro_Z_LB = i2c_read(false);
+  KXG03_Gyro_Z_HB = i2c_read(true);
+  i2c_stop();
+
+  KXG03_Gyro_X_RawOUT = (KXG03_Gyro_X_HB<<8) | (KXG03_Gyro_X_LB);
+  KXG03_Gyro_Y_RawOUT = (KXG03_Gyro_Y_HB<<8) | (KXG03_Gyro_Y_LB);
+  KXG03_Gyro_Z_RawOUT = (KXG03_Gyro_Z_HB<<8) | (KXG03_Gyro_Z_LB);
+
+  aveX = KXG03_Gyro_X_RawOUT;
+  aveY = KXG03_Gyro_Y_RawOUT;
+  aveZ = KXG03_Gyro_Z_RawOUT;
+  aveX2 = aveX2 + aveX;
+  aveY2 = aveY2 + aveY;
+  aveZ2 = aveZ2 + aveZ; 
+  }
+
+  aveX3 = aveX2 / 10;
+  aveY3 = aveY2 / 10;
+  aveZ3 = aveZ2 / 10;
+
+  t = 0;
+
+}
+
+  // Start Getting Data from KXG03 Sensor
+else {
+  i2c_start(KXG03_DeviceAddress);
+  i2c_write(0x02);
+  i2c_rep_start(KXG03_DeviceAddress | 1);
+  KXG03_Gyro_X_LB = i2c_read(false);
+  KXG03_Gyro_X_HB = i2c_read(false);
+  KXG03_Gyro_Y_LB = i2c_read(false);
+  KXG03_Gyro_Y_HB = i2c_read(false);
+  KXG03_Gyro_Z_LB = i2c_read(false);
+  KXG03_Gyro_Z_HB = i2c_read(true);
+  i2c_stop();
+  
+  KXG03_Gyro_X_RawOUT = (KXG03_Gyro_X_HB<<8) | (KXG03_Gyro_X_LB);
+  KXG03_Gyro_Y_RawOUT = (KXG03_Gyro_Y_HB<<8) | (KXG03_Gyro_Y_LB);
+  KXG03_Gyro_Z_RawOUT = (KXG03_Gyro_Z_HB<<8) | (KXG03_Gyro_Z_LB);
+
+  KXG03_Gyro_X_RawOUT2 = KXG03_Gyro_X_RawOUT - aveX3;
+  KXG03_Gyro_Y_RawOUT2 = KXG03_Gyro_Y_RawOUT - aveY3;
+  KXG03_Gyro_Z_RawOUT2 = KXG03_Gyro_Z_RawOUT - aveZ3;
+
+  //Scale Data
+  KXG03_Gyro_X = (float)KXG03_Gyro_X_RawOUT2 * 0.007813 + 0.000004;
+  KXG03_Gyro_Y = (float)KXG03_Gyro_Y_RawOUT2 * 0.007813 + 0.000004;
+  KXG03_Gyro_Z = (float)KXG03_Gyro_Z_RawOUT2 * 0.007813 + 0.000004; 
+
+  Serial.write("KXG03 Gyro (X) = ");
+  Serial.print(KXG03_Gyro_X);
+  Serial.write(" deg/sec");
+  Serial.write(0x0A);  //Print Line Feed
+  Serial.write(0x0D);  //Print Carrage Return
+  Serial.write("KXG03 Gyro (Y) = ");
+  Serial.print(KXG03_Gyro_Y);
+  Serial.write(" deg/sec");
+  Serial.write(0x0A);  //Print Line Feed
+  Serial.write(0x0D);  //Print Carrage Return
+  Serial.write("KXG03 Gyro (Z) = ");
+  Serial.print(KXG03_Gyro_Z);
+  Serial.write(" deg/sec");
+  Serial.write(0x0A);  //Print Line Feed
+  Serial.write(0x0D);  //Print Carrage Return
+
+  /*
+  //Accel Data 
+  i2c_start(KXG03_DeviceAddress);
+  i2c_write(0x08);
+  i2c_rep_start(KXG03_DeviceAddress | 1);
+  KXG03_Accel_X_LB = i2c_read(false);
+  KXG03_Accel_X_HB = i2c_read(false);
+  KXG03_Accel_Y_LB = i2c_read(false);
+  KXG03_Accel_Y_HB = i2c_read(false);
+  KXG03_Accel_Z_LB = i2c_read(false);
+  KXG03_Accel_Z_HB = i2c_read(true);
+  i2c_stop();
+
+  KXG03_Accel_X_RawOUT = (KXG03_Accel_X_HB<<8) | (KXG03_Accel_X_LB);
+  KXG03_Accel_Y_RawOUT = (KXG03_Accel_Y_HB<<8) | (KXG03_Accel_Y_LB);
+  KXG03_Accel_Z_RawOUT = (KXG03_Accel_Z_HB<<8) | (KXG03_Accel_Z_LB);
+
+  //Scale Data
+  KXG03_Accel_X = (float)KXG03_Accel_X_RawOUT * 0.000061 + 0.000017;
+  KXG03_Accel_Y = (float)KXG03_Accel_Y_RawOUT * 0.000061 + 0.000017;
+  KXG03_Accel_Z = (float)KXG03_Accel_Z_RawOUT * 0.000061 + 0.000017; 
+
+  Serial.write("KXG03 ACC (X) = ");
+  Serial.print(KXG03_Accel_X);
+  Serial.write(0x0A);  //Print Line Feed
+  Serial.write(0x0D);  //Print Carrage Return
+  Serial.write("KXG03 ACC (Y) = ");
+  Serial.print(KXG03_Accel_Y);
+  Serial.write(0x0A);  //Print Line Feed
+  Serial.write(0x0D);  //Print Carrage Return
+  Serial.write("KXG03 ACC (Z) = ");
+  Serial.print(KXG03_Accel_Z);
+  Serial.write(0x0A);  //Print Line Feed
+  Serial.write(0x0D);  //Print Carrage Return
+  */
+
+  aveX2 = 0;
+  aveY2 = 0;
+  aveZ2 = 0;
+}
+
+#endif
+  //----- END Code for Reading KXG03 Gyro Sensor -----  
 
 
   Serial.write(0x0A); //Print Line Feed

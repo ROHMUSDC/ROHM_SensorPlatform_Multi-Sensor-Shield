@@ -1,11 +1,11 @@
 /* 
 Sample Program Description: 
-	This Program will enable to Multi-Tech Dragonfly platform to utilize ROHM's Multi-sensor Shield Board.
+    This Program will enable to Multi-Tech Dragonfly platform to utilize ROHM's Multi-sensor Shield Board.
     This program will initialize all sensors on the shield and then read back the sensor data.
     Data will then be output to the UART Debug Terminal every 1 second.
 
 Sample Program Author: 
-	ROHM USDC
+    ROHM USDC
 
 Additional Resources:
     ROHM Sensor Shield GitHub Repository: https://github.com/ROHMUSDC/ROHM_SensorPlatform_Multi-Sensor-Shield
@@ -15,12 +15,13 @@ Additional Resources:
 //Macros for checking each of the different Sensor Devices
 #define AnalogTemp  //BDE0600
 #define AnalogUV    //ML8511
-#define HallSensor  //BU52011
+#define HallSensor  //BU52014
 #define RPR0521     //RPR0521
 #define KMX62       //KMX61, Accel/Mag         
 #define COLOR       //BH1745
-#define KX022       //KX022, Accel Only
+#define KX122       //KX122, Accel Only
 #define Pressure    //BM1383
+#define KXG03        //KXG03
 
 //Define Pins for I2C Interface
 I2C i2c(I2C_SDA, I2C_SCL);
@@ -99,28 +100,66 @@ int         BH1745_Blue;
 int         BH1745_Green;
 #endif
 
-#ifdef KX022
-int         KX022_addr_w = 0x3C;   //write 
-int         KX022_addr_r = 0x3D;   //read 
-char        KX022_Accel_CNTL1[2] = {0x18, 0x41};
-char        KX022_Accel_ODCNTL[2] = {0x1B, 0x02};
-char        KX022_Accel_CNTL3[2] = {0x1A, 0xD8};
-char        KX022_Accel_TILT_TIMER[2] = {0x22, 0x01};
-char        KX022_Accel_CNTL2[2] = {0x18, 0xC1};
-char        KX022_Content_ReadData[6];
-char        KX022_Addr_Accel_ReadData = 0x06;           
-float       KX022_Accel_X;
-float       KX022_Accel_Y;                               
-float       KX022_Accel_Z;
-short int   KX022_Accel_X_RawOUT = 0;
-short int   KX022_Accel_Y_RawOUT = 0;
-short int   KX022_Accel_Z_RawOUT = 0;
-int         KX022_Accel_X_LB = 0;
-int         KX022_Accel_X_HB = 0;
-int         KX022_Accel_Y_LB = 0;
-int         KX022_Accel_Y_HB = 0;
-int         KX022_Accel_Z_LB = 0;
-int         KX022_Accel_Z_HB = 0;
+#ifdef KX122
+int         KX122_addr_w = 0x3C;   //write 
+int         KX122_addr_r = 0x3D;   //read 
+char        KX122_Accel_CNTL1[2] = {0x18, 0x41};
+char        KX122_Accel_ODCNTL[2] = {0x1B, 0x02};
+char        KX122_Accel_CNTL3[2] = {0x1A, 0xD8};
+char        KX122_Accel_TILT_TIMER[2] = {0x22, 0x01};
+char        KX122_Accel_CNTL2[2] = {0x18, 0xC1};
+char        KX122_Content_ReadData[6];
+char        KX122_Addr_Accel_ReadData = 0x06;           
+float       KX122_Accel_X;
+float       KX122_Accel_Y;                               
+float       KX122_Accel_Z;
+short int   KX122_Accel_X_RawOUT = 0;
+short int   KX122_Accel_Y_RawOUT = 0;
+short int   KX122_Accel_Z_RawOUT = 0;
+int         KX122_Accel_X_LB = 0;
+int         KX122_Accel_X_HB = 0;
+int         KX122_Accel_Y_LB = 0;
+int         KX122_Accel_Y_HB = 0;
+int         KX122_Accel_Z_LB = 0;
+int         KX122_Accel_Z_HB = 0;
+#endif
+
+#ifdef KXG03
+int         i = 11;
+int         t = 1;
+short int   aveX = 0;
+short int   aveX2 = 0;
+short int   aveX3 = 0;
+short int   aveY = 0;
+short int   aveY2 = 0;
+short int   aveY3 = 0;
+short int   aveZ = 0;
+short int   aveZ2 = 0;
+short int   aveZ3 = 0;
+float       ave22;
+float       ave33;
+int         KXG03_addr_w = 0x9C;   //write 
+int         KXG03_addr_r = 0x9D;   //read 
+char        KXG03_STBY_REG[2] = {0x43, 0x00};
+char        KXG03_Content_Gyro_ReadData[6];
+char        KXG03_Content_Accel_ReadData[6];
+char        KXG03_Addr_Gyro_ReadData = 0x02;
+char        KXG03_Addr_Accel_ReadData = 0x08;
+float       KXG03_Gyro_X;
+float       KXG03_Gyro_Y;                               
+float       KXG03_Gyro_Z;
+short int   KXG03_Gyro_X_RawOUT = 0;
+short int   KXG03_Gyro_Y_RawOUT = 0; 
+short int   KXG03_Gyro_Z_RawOUT = 0;
+short int   KXG03_Gyro_X_RawOUT2 = 0;
+short int   KXG03_Gyro_Y_RawOUT2 = 0; 
+short int   KXG03_Gyro_Z_RawOUT2 = 0;  
+float       KXG03_Accel_X;
+float       KXG03_Accel_Y;                               
+float       KXG03_Accel_Z;  
+short int   KXG03_Accel_X_RawOUT = 0;
+short int   KXG03_Accel_Y_RawOUT = 0;
+short int   KXG03_Accel_Z_RawOUT = 0;       
 #endif
 
 #ifdef Pressure
@@ -166,12 +205,16 @@ int main() {
     i2c.write(BH1745_addr_w, &BH1745_mode3[0], 2, false);
 #endif
 
-#ifdef KX022
-    i2c.write(KX022_addr_w, &KX022_Accel_CNTL1[0], 2, false);
-    i2c.write(KX022_addr_w, &KX022_Accel_ODCNTL[0], 2, false);
-    i2c.write(KX022_addr_w, &KX022_Accel_CNTL3[0], 2, false);
-    i2c.write(KX022_addr_w, &KX022_Accel_TILT_TIMER[0], 2, false);
-    i2c.write(KX022_addr_w, &KX022_Accel_CNTL2[0], 2, false);
+#ifdef KX122
+    i2c.write(KX122_addr_w, &KX122_Accel_CNTL1[0], 2, false);
+    i2c.write(KX122_addr_w, &KX122_Accel_ODCNTL[0], 2, false);
+    i2c.write(KX122_addr_w, &KX122_Accel_CNTL3[0], 2, false);
+    i2c.write(KX122_addr_w, &KX122_Accel_TILT_TIMER[0], 2, false);
+    i2c.write(KX122_addr_w, &KX122_Accel_CNTL2[0], 2, false);
+#endif
+
+#ifdef KXG03
+    i2c.write(KXG03_addr_w, &KXG03_STBY_REG[0], 2, false);        
 #endif
 
 #ifdef Pressure
@@ -192,7 +235,7 @@ int main() {
         BDE0600_output = (BDE0600_output-(float)1.753)/((float)-0.01068) + (float)30;
         
         printf("BDE0600 Analog Temp Sensor Data:\r\n");
-        printf(" Temp = %.2f C\r\n", BDE0600_output);
+        printf(" Temp = %.2f degC\r\n", BDE0600_output);
         #endif
 
         #ifdef AnalogUV
@@ -303,31 +346,120 @@ int main() {
         printf(" AccX= %0.2f g\r\n", MEMS_Accel_Conv_Xout);
         printf(" AccY= %0.2f g\r\n", MEMS_Accel_Conv_Yout);
         printf(" AccZ= %0.2f g\r\n", MEMS_Accel_Conv_Zout);
-        printf(" MagX= %0.2f g\r\n", MEMS_Mag_Conv_Xout);
-        printf(" MagY= %0.2f g\r\n", MEMS_Mag_Conv_Yout);
-        printf(" MagZ= %0.2f g\r\n", MEMS_Mag_Conv_Zout);
+        printf(" MagX= %0.2f uT\r\n", MEMS_Mag_Conv_Xout);
+        printf(" MagY= %0.2f uT\r\n", MEMS_Mag_Conv_Yout);
+        printf(" MagZ= %0.2f uT\r\n", MEMS_Mag_Conv_Zout);
         #endif
      
-        #ifdef KX022
-        //Read KX022 Portion from the IC
-        i2c.write(KX022_addr_w, &KX022_Addr_Accel_ReadData, 1, RepStart);
-        i2c.read(KX022_addr_r, &KX022_Content_ReadData[0], 6, NoRepStart);
+        #ifdef KX122
+        //Read KX122 Portion from the IC
+        i2c.write(KX122_addr_w, &KX122_Addr_Accel_ReadData, 1, RepStart);
+        i2c.read(KX122_addr_r, &KX122_Content_ReadData[0], 6, NoRepStart);
                     
         //Format Data
-        KX022_Accel_X_RawOUT = (KX022_Content_ReadData[1]<<8) | (KX022_Content_ReadData[0]);
-        KX022_Accel_Y_RawOUT = (KX022_Content_ReadData[3]<<8) | (KX022_Content_ReadData[2]);
-        KX022_Accel_Z_RawOUT = (KX022_Content_ReadData[5]<<8) | (KX022_Content_ReadData[4]);       
+        KX122_Accel_X_RawOUT = (KX122_Content_ReadData[1]<<8) | (KX122_Content_ReadData[0]);
+        KX122_Accel_Y_RawOUT = (KX122_Content_ReadData[3]<<8) | (KX122_Content_ReadData[2]);
+        KX122_Accel_Z_RawOUT = (KX122_Content_ReadData[5]<<8) | (KX122_Content_ReadData[4]);       
 
         //Scale Data
-        KX022_Accel_X = (float)KX022_Accel_X_RawOUT / 16384;
-        KX022_Accel_Y = (float)KX022_Accel_Y_RawOUT / 16384;
-        KX022_Accel_Z = (float)KX022_Accel_Z_RawOUT / 16384;
+        KX122_Accel_X = (float)KX122_Accel_X_RawOUT / 16384;
+        KX122_Accel_Y = (float)KX122_Accel_Y_RawOUT / 16384;
+        KX122_Accel_Z = (float)KX122_Accel_Z_RawOUT / 16384;
         
         //Return Data through UART
-        printf("KX022 Accelerometer Sensor Data: \r\n");
-        printf(" AccX= %0.2f g\r\n", KX022_Accel_X);
-        printf(" AccY= %0.2f g\r\n", KX022_Accel_Y);
-        printf(" AccZ= %0.2f g\r\n", KX022_Accel_Z);
+        printf("KX122 Accelerometer Sensor Data: \r\n");
+        printf(" AccX= %0.2f g\r\n", KX122_Accel_X);
+        printf(" AccY= %0.2f g\r\n", KX122_Accel_Y);
+        printf(" AccZ= %0.2f g\r\n", KX122_Accel_Z);
+        #endif
+        
+        #ifdef KXG03
+        //Read KXG03 Gyro Portion from the IC
+        i2c.write(KXG03_addr_w, &KXG03_Addr_Gyro_ReadData, 1, RepStart);
+        i2c.read(KXG03_addr_r, &KXG03_Content_Gyro_ReadData[0], 6, NoRepStart);
+        
+        if (t == 1){    
+            int i = 11;
+            while(--i) 
+            {
+                //Read KXG03 Gyro Portion from the IC
+                i2c.write(KXG03_addr_w, &KXG03_Addr_Gyro_ReadData, 1, RepStart);
+                i2c.read(KXG03_addr_r, &KXG03_Content_Gyro_ReadData[0], 6, NoRepStart);
+      
+                //Format Data
+                KXG03_Gyro_X_RawOUT = (KXG03_Content_Gyro_ReadData[1]<<8) | (KXG03_Content_Gyro_ReadData[0]);
+                KXG03_Gyro_Y_RawOUT = (KXG03_Content_Gyro_ReadData[3]<<8) | (KXG03_Content_Gyro_ReadData[2]);
+                KXG03_Gyro_Z_RawOUT = (KXG03_Content_Gyro_ReadData[5]<<8) | (KXG03_Content_Gyro_ReadData[4]);
+                aveX = KXG03_Gyro_X_RawOUT;
+                aveY = KXG03_Gyro_Y_RawOUT;
+                aveZ = KXG03_Gyro_Z_RawOUT;
+                aveX2 = aveX2 + aveX;
+                aveY2 = aveY2 + aveY;
+                aveZ2 = aveZ2 + aveZ;  
+             } 
+        aveX3 = aveX2 / 10;
+        aveY3 = aveY2 / 10;
+        aveZ3 = aveZ2 / 10;
+        printf("KXG03 Gyroscopic Sensor Data: \r\n");
+        printf("KXG03 Gyroscopic Offset Calculation: \r\n");      
+        printf(" aveX2= %d \r\n", aveX2);        
+        printf(" aveY2= %d \r\n", aveY2);
+        printf(" aveZ2= %d \r\n", aveZ2);
+        printf(" aveX3= %d \r\n", aveX3);  
+        printf(" aveY3= %d \r\n", aveY3);  
+        printf(" aveZ3= %d \r\n", aveZ3);       
+        t = 0;
+        }                  
+        
+        else {
+        //Read KXG03 Gyro Portion from the IC
+        i2c.write(KXG03_addr_w, &KXG03_Addr_Gyro_ReadData, 1, RepStart);
+        i2c.read(KXG03_addr_r, &KXG03_Content_Gyro_ReadData[0], 6, NoRepStart);
+                            
+        //Format Data
+        KXG03_Gyro_X_RawOUT = (KXG03_Content_Gyro_ReadData[1]<<8) | (KXG03_Content_Gyro_ReadData[0]);
+        KXG03_Gyro_Y_RawOUT = (KXG03_Content_Gyro_ReadData[3]<<8) | (KXG03_Content_Gyro_ReadData[2]);
+        KXG03_Gyro_Z_RawOUT = (KXG03_Content_Gyro_ReadData[5]<<8) | (KXG03_Content_Gyro_ReadData[4]);  
+        
+        //printf(" aveX3= %d \r\n", aveX3);  
+        //printf(" aveY3= %d \r\n", aveY3);  
+        //printf(" aveZ3= %d \r\n", aveZ3);
+
+        KXG03_Gyro_X_RawOUT2 = KXG03_Gyro_X_RawOUT - aveX3;
+        KXG03_Gyro_Y_RawOUT2 = KXG03_Gyro_Y_RawOUT - aveY3;
+        KXG03_Gyro_Z_RawOUT2 = KXG03_Gyro_Z_RawOUT - aveZ3;
+        
+        //Scale Data
+        KXG03_Gyro_X = (float)KXG03_Gyro_X_RawOUT2 * 0.007813 + 0.000004;
+        KXG03_Gyro_Y = (float)KXG03_Gyro_Y_RawOUT2 * 0.007813 + 0.000004;
+        KXG03_Gyro_Z = (float)KXG03_Gyro_Z_RawOUT2 * 0.007813 + 0.000004;           
+        
+        printf("KXG03 Gyroscopic Sensor Data: \r\n");
+        printf(" GyroX= %0.2f deg/sec\r\n", KXG03_Gyro_X);
+        printf(" GyroY= %0.2f deg/sec\r\n", KXG03_Gyro_Y);
+        printf(" GyroZ= %0.2f deg/sec\r\n", KXG03_Gyro_Z);        
+        
+        //Read KXG03 Accel Portion from the IC
+        i2c.write(KXG03_addr_w, &KXG03_Addr_Accel_ReadData, 1, RepStart);
+        i2c.read(KXG03_addr_r, &KXG03_Content_Accel_ReadData[0], 6, NoRepStart); 
+        
+        KXG03_Accel_X_RawOUT = (KXG03_Content_Accel_ReadData[1]<<8) | (KXG03_Content_Accel_ReadData[0]);
+        KXG03_Accel_Y_RawOUT = (KXG03_Content_Accel_ReadData[3]<<8) | (KXG03_Content_Accel_ReadData[2]);
+        KXG03_Accel_Z_RawOUT = (KXG03_Content_Accel_ReadData[5]<<8) | (KXG03_Content_Accel_ReadData[4]);        
+         
+        //Scale Data
+        KXG03_Accel_X = (float)KXG03_Accel_X_RawOUT * 0.000061 + 0.000017;
+        KXG03_Accel_Y = (float)KXG03_Accel_Y_RawOUT * 0.000061 + 0.000017;
+        KXG03_Accel_Z = (float)KXG03_Accel_Z_RawOUT * 0.000061 + 0.000017;        
+                            
+        //Return Data through UART
+        printf(" AccX= %0.2f g\r\n", KXG03_Accel_X);
+        printf(" AccY= %0.2f g\r\n", KXG03_Accel_Y);
+        printf(" AccZ= %0.2f g\r\n", KXG03_Accel_Z);   
+        aveX2 = 0;
+        aveY2 = 0;
+        aveZ2 = 0;
+        }              
         #endif
      
         #ifdef Pressure
@@ -343,7 +475,7 @@ int main() {
         BM1383_Pres_Conv_Out = (BM1383_Var + BM1383_Deci);   //question pending here...
         
         printf("BM1383 Pressure Sensor Data:\r\n");
-        printf(" Temperature= %0.2f C\r\n", BM1383_Temp_Conv_Out);
+        printf(" Temperature= %0.2f degC\r\n", BM1383_Temp_Conv_Out);
         printf(" Pressure   = %0.2f hPa\r\n", BM1383_Pres_Conv_Out);
         #endif
         //*********************************************************************
