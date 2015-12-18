@@ -430,9 +430,9 @@ int main() {
         KXG03_Gyro_Z_RawOUT2 = KXG03_Gyro_Z_RawOUT - aveZ3;
         
         //Scale Data
-        KXG03_Gyro_X = (float)KXG03_Gyro_X_RawOUT2 * 0.007813 + 0.000004;
-        KXG03_Gyro_Y = (float)KXG03_Gyro_Y_RawOUT2 * 0.007813 + 0.000004;
-        KXG03_Gyro_Z = (float)KXG03_Gyro_Z_RawOUT2 * 0.007813 + 0.000004;           
+        KXG03_Gyro_X = (float)KXG03_Gyro_X_RawOUT2 * (float)0.007813 + (float)0.000004;
+        KXG03_Gyro_Y = (float)KXG03_Gyro_Y_RawOUT2 * (float)0.007813 + (float)0.000004;
+        KXG03_Gyro_Z = (float)KXG03_Gyro_Z_RawOUT2 * (float)0.007813 + (float)0.000004;           
         
         printf("KXG03 Gyroscopic Sensor Data: \r\n");
         printf(" GyroX= %0.2f deg/sec\r\n", KXG03_Gyro_X);
@@ -448,9 +448,9 @@ int main() {
         KXG03_Accel_Z_RawOUT = (KXG03_Content_Accel_ReadData[5]<<8) | (KXG03_Content_Accel_ReadData[4]);        
          
         //Scale Data
-        KXG03_Accel_X = (float)KXG03_Accel_X_RawOUT * 0.000061 + 0.000017;
-        KXG03_Accel_Y = (float)KXG03_Accel_Y_RawOUT * 0.000061 + 0.000017;
-        KXG03_Accel_Z = (float)KXG03_Accel_Z_RawOUT * 0.000061 + 0.000017;        
+        KXG03_Accel_X = (float)KXG03_Accel_X_RawOUT * (float)0.000061 + (float)0.000017;
+        KXG03_Accel_Y = (float)KXG03_Accel_Y_RawOUT * (float)0.000061 + (float)0.000017;
+        KXG03_Accel_Z = (float)KXG03_Accel_Z_RawOUT * (float)0.000061 + (float)0.000017;        
                             
         //Return Data through UART
         printf(" AccX= %0.2f g\r\n", KXG03_Accel_X);
