@@ -1,4 +1,4 @@
-# ROHM Multi-Sensor Shield Public Repository
+# ROHM Sensor Shield Public Repository
 * Applicable Part Number: ROHM_SENSORSHLD0-EVK-101, ROHM_SENSORSHLD1-EVK-101
 * Description:  A single board containing all ROHM Sensors with a common platform pin out (standard Arduino header)
 * Developer: USDC Applications Engineering Team, ROHM Semiconductor
@@ -6,9 +6,41 @@
 * Related Projects: https://github.com/ROHMUSDC/ROHMSensorPlatformEVK
 
 ----
+### ROHM Sensor Shield Included Sensors
+* ROHM_SENSORSHLD1-EVK-101
+  * Core Sensors:
+    * ROHM BDE0600G – Analog Temperature Sensor
+    * ROHM BM1383AGLV – Digital Barometric Pressure Sensor
+    * ROHM BU52014HFV – Hall Switch Sensor (Omnipolar with Polarity Discrimination)
+    * ROHM BM1422GMV – Magnetometer Sensor
+    * KIONIX KX122 – Digital Accelerometer
+    * KIONIX KMX62 – Digital Magnetometer and Accelerometer
+    * KIONIX KXG03 – Digital Gyroscope and Accelerometer
+    * LAPIS ML8511A – Analog UV Sensor
+    * LAPIS ML8523 – Digital UV Sensor with UV-A and UV-B Filtering
+    * ROHM RPR-0521 – Digital Ambient Light Sensor and Proximity Sensor
+    * ROHM BH1745 – Digital Color Sensor
+  * Special Functions:
+    * KNOWLES SPM0423HD4H-WB – Digital Microphone
+      * Primarily for use with NXP MCU Lineup
+    * KIONIX KX123-1039, KX124-1050 – Accelerometer
+      * For four corner Accelerometer algorithm development
+      * Difference between 1039 and 1050 is the I2C register address scheme to control all 4 accelerometers using a single I2C master
+
+----
 ### Repository Contents
-* Documentation Folder: Contains HW PDF files, Sensor Documentation, and Rough Specifications.  Application Note and Platform Guides will be coming soon!
-* HW Source Files: Contains the HW Source OrCad Schematic and Allegro Layout Files for this kit.  Also contains Gerber output. * Platform Code: Contains the firmware for the difference sources this board can be used on.  As of 6-15, this contains work for LAPIS Sensor Platform Board, Arduino, and LPCXpresso54102
+* "Documentation" Folder
+  * "Sensor Shield General Datasheet" Folder - Contains the General Datasheet for this Shield Board
+  * "Sensor Datasheets" Folder - Contains Datasheets for sensors on the Shield Board
+* "HW Source Files" Folder 
+  * "SENSORSHLD0-EVK-101 HW Design Files" Folder - Contains Schematic, BOM, Layout, Gerber Files for this revision of the Shield Board
+  * "SENSORSHLD1-EVK-101 HW Design Files" Folder - Contains Schematic, BOM, Layout, Gerber Files for this revision of the shield Board
+* "Platform Code" Folder
+  * "Arduino_UNO_FirmwareExample" Folder - Provides documentation and example code for Arduino UNO Platform
+  * "LAPIS_SensorPlatform_Firmware" Folder - Provides example code for ROHM's Sensor Platform Kit
+  * "MultiTech_Dragonfly_FirmwareExample" Folder - Provides documentation and example code for MultiTech's Dragonfly
+  * "Nordic_nRF51-DK_FirmwareExample" Folder - Provides documentation and example code for Nordic nRF51-DK
+  * "NXP_LPCXpresso54102_BlinkyExample" Folder - Provides example code for NXP's LPCXpresso54102
 
 ----
 ### Current Supported Platforms
@@ -31,43 +63,40 @@
 	* Removed Erroneous Jumpers
 	* Removed J5 to J11 and adjusted routing for J1 to J4
 	* Added ROHM BM1422GMV Magnetometer, 1.8V level shifter, and 1.8V LDO (for Magnetometer usage)
+	* Changed pressure sensor from BM1383GLV to BM1383AGLV.  (No HW change, but new PN has new FW I2C register mapping)
+	* PN Change from ML8511 to ML8511A (only chip labelling change)
+	* Added LAPIS Digital UV Sensor, ML8523
+	* Kionix Corner Accelerometer: one PN, KX123-1050, has been adjusted to the KX124-1050
 	
 ----
-### Software License
-The following are categorized under the GNU General Public License, Version 3:
-* Firmware Design. Includes LAPIS ML610Q112 MCU main.c C code
+### DISCLAIMER
+This Technical Data is protected under copyright laws.
 
-Copyright (C) 2015 USDC Applications Engineering Team, ROHM Semiconductor
+ROHM hereby grants you a nonexclusive, nontransferable license to use this Technical Data 
+as long as you abide by the terms and conditions of this DISCLAIMER. 
 
-This program is free software: you can redistribute it and/or 
-modify it under the terms of the GNU General Public License as published 
-by the Free Software Foundation, either version 3 of the License, or any 
-later version.
+However, you are not authorized to sell, loan, rent, lease, redistribute or license this Technical Data, 
+in whole or in part, or in modified form, to anyone.
 
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.
+You may modify this Technical Data to suit your specific applications, 
+but the rights to derivative works and said modifications shall belong to ROHM. 
 
-You should have received a copy of the GNU General Public License
-along with this program.  If not, see <http://www.gnu.org/licenses/>.
+You may make copies of this Technical Data as necessary for internal use only within your company.
 
-----
-### Hardware License
-The following are categorized under the CERN Open Hardware Licence, Version 1.2:
-* Hardware Design. Includes Schematic, BOM, Layout
+ROHM shall not be responsible for ensuring proper application on all computer systems.
+This Technical Data is provided AS IS. ROHM makes no guarantees, either implicitly or explicitly, 
+regarding its usability, functionality, accuracy, merchantability, or fitness for a specific purpose.
 
-Copyright (C) 2015 USDC Applications Engineering Team, ROHM Semiconductor
+In addition, you shall take full responsibility for the use of any information acquired from this Technical Data. 
 
-This repository contains free hardware design concepts: you can redistribute it and/or 
-modify it under the terms of the CERN Open Hardware Licence as published 
-by the CERN, either version 1.2 of the License, or any 
-later version.
+ROHM does not assume warranty of any kind arising from the use of this Technical Data. ACCORDINGLY, 
+IN NO EVENT SHALL ROHM BE RESPONSIBLE, WHETHER THROUGH CONTRACT OR TORT LIABILITY, 
+FOR ANY DAMAGES (INCLUDING BUT NOT LIMITED TO LOST PROFITS OR OTHER INCIDENTAL, CONSEQUENTAL, 
+OR PUNITIVE DAMAGES) ARISING OUT OF OR IN CONNECTION WITH THE USE OR APPLICATION OF THIS Technical Data.
 
-This hardware design is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.
+Furthermore, this Technical Data is subject to change without notice.
 
-You should have received a copy of the CERN Open Hardware Licence
-along with this program.  If not, see <http://www.ohwr.org/licenses/cern-ohl/v1.2>.
+Unless otherwise expressly provided herein, ROHM does not convey any license under patent rights 
+or any other intellectual property rights (including those of third parties).
+
+ROHM is not obligated to provide maintenance or support for the Technical Data.
