@@ -65,7 +65,6 @@
 	* Added ROHM BM1422GMV Magnetometer, 1.8V level shifter, and 1.8V LDO (for Magnetometer usage)
 	* Changed pressure sensor from BM1383GLV to BM1383AGLV.  (No HW change, but new PN has new FW I2C register mapping)
 	* PN Change from ML8511 to ML8511A (only chip labelling change)
-	* Added LAPIS Digital UV Sensor, ML8523
 	* Kionix Corner Accelerometer: one PN, KX123-1050, has been adjusted to the KX124-1050
 	
 ----
