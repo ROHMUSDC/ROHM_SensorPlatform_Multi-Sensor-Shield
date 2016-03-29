@@ -1,0 +1,1020 @@
+FILE_TYPE = EXPANDEDPARTLIST;
+{ Using PSTWRITER 16.6.0 d001May-14-2015 at 17:49:55 }
+DIRECTIVES
+ PST_VERSION='PST_HDL_CENTRIC_VERSION_0';
+ ROOT_DRAWING='SENSORKIT-MULTISENSORSHIELD_BOARD_SCH_REV1_03_14MAY2015_1800_CH';
+ POST_TIME='Oct 15 2014 05:53:32';
+ SOURCE_TOOL='CAPTURE_WRITER';
+END_DIRECTIVES;
+
+PART_NAME
+ C1 'C_2_C0402_0.1UF':;
+
+SECTION_NUMBER 1
+ '@SENSORKIT-MULTISENSORSHIELD_BOARD_SCH_REV1_03_14MAY2015_1800_CH.BREAKOUT BOARDS(SCH_1):INS14000665@STEPPER.C_2.NORMAL(CHIPS)':
+ C_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):ins14000665@stepper.\c_2.normal\(chips)',
+ P_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):page2_ins14000665@stepper.\c_2.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ C10 'C_2_C0402_0.1UF':;
+
+SECTION_NUMBER 1
+ '@SENSORKIT-MULTISENSORSHIELD_BOARD_SCH_REV1_03_14MAY2015_1800_CH.BREAKOUT BOARDS(SCH_1):INS14002960@STEPPER.C_2.NORMAL(CHIPS)':
+ C_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):ins14002960@stepper.\c_2.normal\(chips)',
+ P_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):page2_ins14002960@stepper.\c_2.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ C11 'C_2_C0402_0.1UF':;
+
+SECTION_NUMBER 1
+ '@SENSORKIT-MULTISENSORSHIELD_BOARD_SCH_REV1_03_14MAY2015_1800_CH.BREAKOUT BOARDS(SCH_1):INS14003384@STEPPER.C_2.NORMAL(CHIPS)':
+ C_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):ins14003384@stepper.\c_2.normal\(chips)',
+ P_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):page2_ins14003384@stepper.\c_2.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ C12 'C_2_C0402_1UF':;
+
+SECTION_NUMBER 1
+ '@SENSORKIT-MULTISENSORSHIELD_BOARD_SCH_REV1_03_14MAY2015_1800_CH.BREAKOUT BOARDS(SCH_1):INS14003486@STEPPER.C_2.NORMAL(CHIPS)':
+ C_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):ins14003486@stepper.\c_2.normal\(chips)',
+ P_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):page2_ins14003486@stepper.\c_2.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ C13 'C_2_C0402_0.1UF':;
+
+SECTION_NUMBER 1
+ '@SENSORKIT-MULTISENSORSHIELD_BOARD_SCH_REV1_03_14MAY2015_1800_CH.BREAKOUT BOARDS(SCH_1):INS14063093@STEPPER.C_2.NORMAL(CHIPS)':
+ C_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):ins14063093@stepper.\c_2.normal\(chips)',
+ P_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):page2_ins14063093@stepper.\c_2.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ C14 'C_2_C0402_0.1UF':;
+
+SECTION_NUMBER 1
+ '@SENSORKIT-MULTISENSORSHIELD_BOARD_SCH_REV1_03_14MAY2015_1800_CH.BREAKOUT BOARDS(SCH_1):INS14063613@STEPPER.C_2.NORMAL(CHIPS)':
+ C_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):ins14063613@stepper.\c_2.normal\(chips)',
+ P_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):page2_ins14063613@stepper.\c_2.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ C17 'C_2_C0402_0.1UF':;
+
+SECTION_NUMBER 1
+ '@SENSORKIT-MULTISENSORSHIELD_BOARD_SCH_REV1_03_14MAY2015_1800_CH.BREAKOUT BOARDS(SCH_1):INS14104759@STEPPER.C_2.NORMAL(CHIPS)':
+ C_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):ins14104759@stepper.\c_2.normal\(chips)',
+ P_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):page2_ins14104759@stepper.\c_2.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ C19 'C_2_C0402_2.2NF':;
+
+SECTION_NUMBER 1
+ '@SENSORKIT-MULTISENSORSHIELD_BOARD_SCH_REV1_03_14MAY2015_1800_CH.BREAKOUT BOARDS(SCH_1):INS14105326@STEPPER.C_2.NORMAL(CHIPS)':
+ C_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):ins14105326@stepper.\c_2.normal\(chips)',
+ P_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):page2_ins14105326@stepper.\c_2.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ C2 'C_2_C0402_0.1UF':;
+
+SECTION_NUMBER 1
+ '@SENSORKIT-MULTISENSORSHIELD_BOARD_SCH_REV1_03_14MAY2015_1800_CH.BREAKOUT BOARDS(SCH_1):INS14048038@STEPPER.C_2.NORMAL(CHIPS)':
+ C_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):ins14048038@stepper.\c_2.normal\(chips)',
+ P_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):page2_ins14048038@stepper.\c_2.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ C21 'C_2_C0402_0.1UF':;
+
+SECTION_NUMBER 1
+ '@SENSORKIT-MULTISENSORSHIELD_BOARD_SCH_REV1_03_14MAY2015_1800_CH.BREAKOUT BOARDS(SCH_1):INS14105356@STEPPER.C_2.NORMAL(CHIPS)':
+ C_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):ins14105356@stepper.\c_2.normal\(chips)',
+ P_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):page2_ins14105356@stepper.\c_2.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ C22 'C_2_C0402_10NF':;
+
+SECTION_NUMBER 1
+ '@SENSORKIT-MULTISENSORSHIELD_BOARD_SCH_REV1_03_14MAY2015_1800_CH.BREAKOUT BOARDS(SCH_1):INS14105828@STEPPER.C_2.NORMAL(CHIPS)':
+ C_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):ins14105828@stepper.\c_2.normal\(chips)',
+ P_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):page2_ins14105828@stepper.\c_2.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ C23 'C_2_C0402_0.1UF':;
+
+SECTION_NUMBER 1
+ '@SENSORKIT-MULTISENSORSHIELD_BOARD_SCH_REV1_03_14MAY2015_1800_CH.BREAKOUT BOARDS(SCH_1):INS14127968@STEPPER.C_2.NORMAL(CHIPS)':
+ C_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):ins14127968@stepper.\c_2.normal\(chips)',
+ P_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):page2_ins14127968@stepper.\c_2.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ C24 'C_2_C0402_0.1UF':;
+
+SECTION_NUMBER 1
+ '@SENSORKIT-MULTISENSORSHIELD_BOARD_SCH_REV1_03_14MAY2015_1800_CH.BREAKOUT BOARDS(SCH_1):INS14147451@STEPPER.C_2.NORMAL(CHIPS)':
+ C_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):ins14147451@stepper.\c_2.normal\(chips)',
+ P_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):page2_ins14147451@stepper.\c_2.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ C25 'C_2_C0402_0.1UF':;
+
+SECTION_NUMBER 1
+ '@SENSORKIT-MULTISENSORSHIELD_BOARD_SCH_REV1_03_14MAY2015_1800_CH.BREAKOUT BOARDS(SCH_1):INS14149294@STEPPER.C_2.NORMAL(CHIPS)':
+ C_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):ins14149294@stepper.\c_2.normal\(chips)',
+ P_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):page2_ins14149294@stepper.\c_2.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ C26 'C_2_C0402_0.1UF':;
+
+SECTION_NUMBER 1
+ '@SENSORKIT-MULTISENSORSHIELD_BOARD_SCH_REV1_03_14MAY2015_1800_CH.BREAKOUT BOARDS(SCH_1):INS14153483@STEPPER.C_2.NORMAL(CHIPS)':
+ C_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):ins14153483@stepper.\c_2.normal\(chips)',
+ P_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):page2_ins14153483@stepper.\c_2.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ C27 'C_2_C0402_0.1UF':;
+
+SECTION_NUMBER 1
+ '@SENSORKIT-MULTISENSORSHIELD_BOARD_SCH_REV1_03_14MAY2015_1800_CH.BREAKOUT BOARDS(SCH_1):INS14153377@STEPPER.C_2.NORMAL(CHIPS)':
+ C_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):ins14153377@stepper.\c_2.normal\(chips)',
+ P_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):page2_ins14153377@stepper.\c_2.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ C28 'C_2_C0402_0.1UF':;
+
+SECTION_NUMBER 1
+ '@SENSORKIT-MULTISENSORSHIELD_BOARD_SCH_REV1_03_14MAY2015_1800_CH.BREAKOUT BOARDS(SCH_1):INS14154189@STEPPER.C_2.NORMAL(CHIPS)':
+ C_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):ins14154189@stepper.\c_2.normal\(chips)',
+ P_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):page2_ins14154189@stepper.\c_2.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ C29 'C_2_C0402_0.1UF':;
+
+SECTION_NUMBER 1
+ '@SENSORKIT-MULTISENSORSHIELD_BOARD_SCH_REV1_03_14MAY2015_1800_CH.BREAKOUT BOARDS(SCH_1):INS14154083@STEPPER.C_2.NORMAL(CHIPS)':
+ C_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):ins14154083@stepper.\c_2.normal\(chips)',
+ P_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):page2_ins14154083@stepper.\c_2.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ C3 'C_2_C0402_0.1UF':;
+
+SECTION_NUMBER 1
+ '@SENSORKIT-MULTISENSORSHIELD_BOARD_SCH_REV1_03_14MAY2015_1800_CH.BREAKOUT BOARDS(SCH_1):INS14048147@STEPPER.C_2.NORMAL(CHIPS)':
+ C_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):ins14048147@stepper.\c_2.normal\(chips)',
+ P_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):page2_ins14048147@stepper.\c_2.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ C30 'C_2_C0402_0.1UF':;
+
+SECTION_NUMBER 1
+ '@SENSORKIT-MULTISENSORSHIELD_BOARD_SCH_REV1_03_14MAY2015_1800_CH.BREAKOUT BOARDS(SCH_1):INS14155516@STEPPER.C_2.NORMAL(CHIPS)':
+ C_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):ins14155516@stepper.\c_2.normal\(chips)',
+ P_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):page2_ins14155516@stepper.\c_2.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ C31 'C_2_C0402_0.1UF':;
+
+SECTION_NUMBER 1
+ '@SENSORKIT-MULTISENSORSHIELD_BOARD_SCH_REV1_03_14MAY2015_1800_CH.BREAKOUT BOARDS(SCH_1):INS14155410@STEPPER.C_2.NORMAL(CHIPS)':
+ C_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):ins14155410@stepper.\c_2.normal\(chips)',
+ P_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):page2_ins14155410@stepper.\c_2.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ C5 'C_2_C0402_0.1UF':;
+
+SECTION_NUMBER 1
+ '@SENSORKIT-MULTISENSORSHIELD_BOARD_SCH_REV1_03_14MAY2015_1800_CH.BREAKOUT BOARDS(SCH_1):INS13998624@STEPPER.C_2.NORMAL(CHIPS)':
+ C_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):ins13998624@stepper.\c_2.normal\(chips)',
+ P_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):page2_ins13998624@stepper.\c_2.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ C6 'C_2_C0402_0.1UF':;
+
+SECTION_NUMBER 1
+ '@SENSORKIT-MULTISENSORSHIELD_BOARD_SCH_REV1_03_14MAY2015_1800_CH.BREAKOUT BOARDS(SCH_1):INS14003150@STEPPER.C_2.NORMAL(CHIPS)':
+ C_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):ins14003150@stepper.\c_2.normal\(chips)',
+ P_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):page2_ins14003150@stepper.\c_2.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ C7 'C_2_C0402_1NF':;
+
+SECTION_NUMBER 1
+ '@SENSORKIT-MULTISENSORSHIELD_BOARD_SCH_REV1_03_14MAY2015_1800_CH.BREAKOUT BOARDS(SCH_1):INS14003002@STEPPER.C_2.NORMAL(CHIPS)':
+ C_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):ins14003002@stepper.\c_2.normal\(chips)',
+ P_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):page2_ins14003002@stepper.\c_2.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ C8 'C_2_C0402_0.47UF':;
+
+SECTION_NUMBER 1
+ '@SENSORKIT-MULTISENSORSHIELD_BOARD_SCH_REV1_03_14MAY2015_1800_CH.BREAKOUT BOARDS(SCH_1):INS14022719@STEPPER.C_2.NORMAL(CHIPS)':
+ C_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):ins14022719@stepper.\c_2.normal\(chips)',
+ P_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):page2_ins14022719@stepper.\c_2.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ C9 'C_2_C0402_0.1UF':;
+
+SECTION_NUMBER 1
+ '@SENSORKIT-MULTISENSORSHIELD_BOARD_SCH_REV1_03_14MAY2015_1800_CH.BREAKOUT BOARDS(SCH_1):INS14046503@STEPPER.C_2.NORMAL(CHIPS)':
+ C_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):ins14046503@stepper.\c_2.normal\(chips)',
+ P_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):page2_ins14046503@stepper.\c_2.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ D1 'LED_0_LED0402_SML-P11VTT86':;
+
+SECTION_NUMBER 1
+ '@SENSORKIT-MULTISENSORSHIELD_BOARD_SCH_REV1_03_14MAY2015_1800_CH.BREAKOUT BOARDS(SCH_1):INS14095987@ROHM_SENSOR_PLATFORM_BREAKOUT_BOARD_SCH_REV1.02_20141208.LED_0.NORMAL(CHIPS)':
+ C_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):ins14095987@\rohm_sensor_platform_breakout_board_sch_rev1.02_20141208\.\led_0.normal\(chips)',
+ P_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):page3_ins14095987@\rohm_sensor_platform_breakout_board_sch_rev1.02_20141208\.\led_0.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ H1 'SENSORINTERFACEHEADER_1_HDR_THV':;
+
+SECTION_NUMBER 1
+ '@SENSORKIT-MULTISENSORSHIELD_BOARD_SCH_REV1_03_14MAY2015_1800_CH.BREAKOUT BOARDS(SCH_1):INS14080213@SENSORPLATFORM.SENSORINTERFACEHEADER_1.NORMAL(CHIPS)':
+ C_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):ins14080213@sensorplatform.\sensorinterfaceheader_1.normal\(chips)',
+ P_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):page3_ins14080213@sensorplatform.\sensorinterfaceheader_1.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ H10 'HEADER_ARD_DIGITAL2_TOPSIDE_HDR':;
+
+SECTION_NUMBER 1
+ '@SENSORKIT-MULTISENSORSHIELD_BOARD_SCH_REV1_03_14MAY2015_1800_CH.BREAKOUT BOARDS(SCH_1):INS14121429@MULTISENSORBREAKOUT.HEADER_ARD_DIGITAL2_TOPSIDE.NORMAL(CHIPS)':
+ C_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):ins14121429@multisensorbreakout.\header_ard_digital2_topside.normal\(chips)',
+ P_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):page3_ins14121429@multisensorbreakout.\header_ard_digital2_topside.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ H11 '3PINHEADER_HDR_THVT_1X3_100_3PI':;
+
+SECTION_NUMBER 1
+ '@SENSORKIT-MULTISENSORSHIELD_BOARD_SCH_REV1_03_14MAY2015_1800_CH.BREAKOUT BOARDS(SCH_1):INS14158965@KXCJK.3PINHEADER.NORMAL(CHIPS)':
+ C_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):ins14158965@kxcjk.\3pinheader.normal\(chips)',
+ P_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):page3_ins14158965@kxcjk.\3pinheader.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ H12 '3PINHEADER_HDR_THVT_1X3_100_3PI':;
+
+SECTION_NUMBER 1
+ '@SENSORKIT-MULTISENSORSHIELD_BOARD_SCH_REV1_03_14MAY2015_1800_CH.BREAKOUT BOARDS(SCH_1):INS14158947@KXCJK.3PINHEADER.NORMAL(CHIPS)':
+ C_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):ins14158947@kxcjk.\3pinheader.normal\(chips)',
+ P_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):page3_ins14158947@kxcjk.\3pinheader.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ H13 '3PINHEADER_HDR_THVT_1X3_100_3PI':;
+
+SECTION_NUMBER 1
+ '@SENSORKIT-MULTISENSORSHIELD_BOARD_SCH_REV1_03_14MAY2015_1800_CH.BREAKOUT BOARDS(SCH_1):INS14159150@KXCJK.3PINHEADER.NORMAL(CHIPS)':
+ C_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):ins14159150@kxcjk.\3pinheader.normal\(chips)',
+ P_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):page3_ins14159150@kxcjk.\3pinheader.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ H14 '3PINHEADER_HDR_THVT_1X3_100_3PI':;
+
+SECTION_NUMBER 1
+ '@SENSORKIT-MULTISENSORSHIELD_BOARD_SCH_REV1_03_14MAY2015_1800_CH.BREAKOUT BOARDS(SCH_1):INS14159132@KXCJK.3PINHEADER.NORMAL(CHIPS)':
+ C_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):ins14159132@kxcjk.\3pinheader.normal\(chips)',
+ P_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):page3_ins14159132@kxcjk.\3pinheader.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ H2 'SENSORINTERFACEHEADER_2_HDR_THV':;
+
+SECTION_NUMBER 1
+ '@SENSORKIT-MULTISENSORSHIELD_BOARD_SCH_REV1_03_14MAY2015_1800_CH.BREAKOUT BOARDS(SCH_1):INS14080235@SENSORPLATFORM.SENSORINTERFACEHEADER_2.NORMAL(CHIPS)':
+ C_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):ins14080235@sensorplatform.\sensorinterfaceheader_2.normal\(chips)',
+ P_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):page3_ins14080235@sensorplatform.\sensorinterfaceheader_2.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ H3 'SENSORINTERFACEHEADER_3_HDR_THV':;
+
+SECTION_NUMBER 1
+ '@SENSORKIT-MULTISENSORSHIELD_BOARD_SCH_REV1_03_14MAY2015_1800_CH.BREAKOUT BOARDS(SCH_1):INS14080257@SENSORPLATFORM.SENSORINTERFACEHEADER_3.NORMAL(CHIPS)':
+ C_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):ins14080257@sensorplatform.\sensorinterfaceheader_3.normal\(chips)',
+ P_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):page3_ins14080257@sensorplatform.\sensorinterfaceheader_3.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ H4 'HEADER_ARD_POWER_0_HDR_THVT_1X8':;
+
+SECTION_NUMBER 1
+ '@SENSORKIT-MULTISENSORSHIELD_BOARD_SCH_REV1_03_14MAY2015_1800_CH.BREAKOUT BOARDS(SCH_1):INS14077996@ROHM_SENSOR_PLATFORM_BREAKOUT_BOARD_SCH_REV1.02_20141208.HEADER_ARD_POWER_0.NORMAL(CHIPS)':
+ C_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):ins14077996@\rohm_sensor_platform_breakout_board_sch_rev1.02_20141208\.\header_ard_power_0.normal\(chips)',
+ P_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):page3_ins14077996@\rohm_sensor_platform_breakout_board_sch_rev1.02_20141208\.\header_ard_power_0.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ H5 'HEADER_ARD_ANALOGIN_HDR_THVT_1X':;
+
+SECTION_NUMBER 1
+ '@SENSORKIT-MULTISENSORSHIELD_BOARD_SCH_REV1_03_14MAY2015_1800_CH.BREAKOUT BOARDS(SCH_1):INS14078024@MULTISENSORBREAKOUT.HEADER_ARD_ANALOGIN.NORMAL(CHIPS)':
+ C_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):ins14078024@multisensorbreakout.\header_ard_analogin.normal\(chips)',
+ P_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):page3_ins14078024@multisensorbreakout.\header_ard_analogin.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ H6 'HEADER_ARD_DIGITAL1_0_HDR_THVT_':;
+
+SECTION_NUMBER 1
+ '@SENSORKIT-MULTISENSORSHIELD_BOARD_SCH_REV1_03_14MAY2015_1800_CH.BREAKOUT BOARDS(SCH_1):INS14078048@ROHM_SENSOR_PLATFORM_BREAKOUT_BOARD_SCH_REV1.02_20141208.HEADER_ARD_DIGITAL1_0.NORMAL(CHIPS)':
+ C_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):ins14078048@\rohm_sensor_platform_breakout_board_sch_rev1.02_20141208\.\header_ard_digital1_0.normal\(chips)',
+ P_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):page3_ins14078048@\rohm_sensor_platform_breakout_board_sch_rev1.02_20141208\.\header_ard_digital1_0.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ H7 'HEADER_ARD_DIGITAL2_HDR_THVT_1X':;
+
+SECTION_NUMBER 1
+ '@SENSORKIT-MULTISENSORSHIELD_BOARD_SCH_REV1_03_14MAY2015_1800_CH.BREAKOUT BOARDS(SCH_1):INS14078076@MULTISENSORBREAKOUT.HEADER_ARD_DIGITAL2.NORMAL(CHIPS)':
+ C_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):ins14078076@multisensorbreakout.\header_ard_digital2.normal\(chips)',
+ P_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):page3_ins14078076@multisensorbreakout.\header_ard_digital2.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ H8 'EXPANSIONHEADER_I2C+ADC_0_HDR_T':;
+
+SECTION_NUMBER 1
+ '@SENSORKIT-MULTISENSORSHIELD_BOARD_SCH_REV1_03_14MAY2015_1800_CH.BREAKOUT BOARDS(SCH_1):INS14083743@ROHM_SENSOR_PLATFORM_BREAKOUT_BOARD_SCH_REV1.02_20141208.EXPANSIONHEADER_I2C+ADC_0.NORMAL(CHIPS)':
+ C_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):ins14083743@\rohm_sensor_platform_breakout_board_sch_rev1.02_20141208\.\expansionheader_i2c+adc_0.normal\(chips)',
+ P_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):page3_ins14083743@\rohm_sensor_platform_breakout_board_sch_rev1.02_20141208\.\expansionheader_i2c+adc_0.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ H9 'EXPANSIONHEADER_SPI_0_HDR_THVT_':;
+
+SECTION_NUMBER 1
+ '@SENSORKIT-MULTISENSORSHIELD_BOARD_SCH_REV1_03_14MAY2015_1800_CH.BREAKOUT BOARDS(SCH_1):INS14083840@ROHM_SENSOR_PLATFORM_BREAKOUT_BOARD_SCH_REV1.02_20141208.EXPANSIONHEADER_SPI_0.NORMAL(CHIPS)':
+ C_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):ins14083840@\rohm_sensor_platform_breakout_board_sch_rev1.02_20141208\.\expansionheader_spi_0.normal\(chips)',
+ P_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):page3_ins14083840@\rohm_sensor_platform_breakout_board_sch_rev1.02_20141208\.\expansionheader_spi_0.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ J1 '2-PIN HEADER_HDR_THVT_1X2_100_2':;
+
+SECTION_NUMBER 1
+ '@SENSORKIT-MULTISENSORSHIELD_BOARD_SCH_REV1_03_14MAY2015_1800_CH.BREAKOUT BOARDS(SCH_1):INS14079527@MULTISENSORBREAKOUT.2-PIN HEADER.NORMAL(CHIPS)':
+ C_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):ins14079527@multisensorbreakout.\2-pin header.normal\(chips)',
+ P_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):page3_ins14079527@multisensorbreakout.\2-pin header.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ J10 '2-PIN HEADER_HDR_THVT_1X2_100_2':;
+
+SECTION_NUMBER 1
+ '@SENSORKIT-MULTISENSORSHIELD_BOARD_SCH_REV1_03_14MAY2015_1800_CH.BREAKOUT BOARDS(SCH_1):INS14079269@MULTISENSORBREAKOUT.2-PIN HEADER.NORMAL(CHIPS)':
+ C_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):ins14079269@multisensorbreakout.\2-pin header.normal\(chips)',
+ P_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):page3_ins14079269@multisensorbreakout.\2-pin header.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ J11 '2-PIN HEADER_HDR_THVT_1X2_100_2':;
+
+SECTION_NUMBER 1
+ '@SENSORKIT-MULTISENSORSHIELD_BOARD_SCH_REV1_03_14MAY2015_1800_CH.BREAKOUT BOARDS(SCH_1):INS14079241@MULTISENSORBREAKOUT.2-PIN HEADER.NORMAL(CHIPS)':
+ C_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):ins14079241@multisensorbreakout.\2-pin header.normal\(chips)',
+ P_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):page3_ins14079241@multisensorbreakout.\2-pin header.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ J12 '2-PIN HEADER_HDR_THVT_1X2_100_2':;
+
+SECTION_NUMBER 1
+ '@SENSORKIT-MULTISENSORSHIELD_BOARD_SCH_REV1_03_14MAY2015_1800_CH.BREAKOUT BOARDS(SCH_1):INS14103253@MULTISENSORBREAKOUT.2-PIN HEADER.NORMAL(CHIPS)':
+ C_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):ins14103253@multisensorbreakout.\2-pin header.normal\(chips)',
+ P_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):page2_ins14103253@multisensorbreakout.\2-pin header.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ J13 '2-PIN HEADER_HDR_THVT_1X2_100_2':;
+
+SECTION_NUMBER 1
+ '@SENSORKIT-MULTISENSORSHIELD_BOARD_SCH_REV1_03_14MAY2015_1800_CH.BREAKOUT BOARDS(SCH_1):INS14107083@MULTISENSORBREAKOUT.2-PIN HEADER.NORMAL(CHIPS)':
+ C_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):ins14107083@multisensorbreakout.\2-pin header.normal\(chips)',
+ P_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):page2_ins14107083@multisensorbreakout.\2-pin header.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ J2 '2-PIN HEADER_HDR_THVT_1X2_100_2':;
+
+SECTION_NUMBER 1
+ '@SENSORKIT-MULTISENSORSHIELD_BOARD_SCH_REV1_03_14MAY2015_1800_CH.BREAKOUT BOARDS(SCH_1):INS14079553@MULTISENSORBREAKOUT.2-PIN HEADER.NORMAL(CHIPS)':
+ C_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):ins14079553@multisensorbreakout.\2-pin header.normal\(chips)',
+ P_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):page3_ins14079553@multisensorbreakout.\2-pin header.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ J3 '2-PIN HEADER_HDR_THVT_1X2_100_2':;
+
+SECTION_NUMBER 1
+ '@SENSORKIT-MULTISENSORSHIELD_BOARD_SCH_REV1_03_14MAY2015_1800_CH.BREAKOUT BOARDS(SCH_1):INS14079067@MULTISENSORBREAKOUT.2-PIN HEADER.NORMAL(CHIPS)':
+ C_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):ins14079067@multisensorbreakout.\2-pin header.normal\(chips)',
+ P_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):page3_ins14079067@multisensorbreakout.\2-pin header.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ J4 '2-PIN HEADER_HDR_THVT_1X2_100_2':;
+
+SECTION_NUMBER 1
+ '@SENSORKIT-MULTISENSORSHIELD_BOARD_SCH_REV1_03_14MAY2015_1800_CH.BREAKOUT BOARDS(SCH_1):INS14079081@MULTISENSORBREAKOUT.2-PIN HEADER.NORMAL(CHIPS)':
+ C_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):ins14079081@multisensorbreakout.\2-pin header.normal\(chips)',
+ P_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):page3_ins14079081@multisensorbreakout.\2-pin header.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ J5 '2-PIN HEADER_HDR_THVT_1X2_100_2':;
+
+SECTION_NUMBER 1
+ '@SENSORKIT-MULTISENSORSHIELD_BOARD_SCH_REV1_03_14MAY2015_1800_CH.BREAKOUT BOARDS(SCH_1):INS14079171@MULTISENSORBREAKOUT.2-PIN HEADER.NORMAL(CHIPS)':
+ C_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):ins14079171@multisensorbreakout.\2-pin header.normal\(chips)',
+ P_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):page3_ins14079171@multisensorbreakout.\2-pin header.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ J6 '2-PIN HEADER_HDR_THVT_1X2_100_2':;
+
+SECTION_NUMBER 1
+ '@SENSORKIT-MULTISENSORSHIELD_BOARD_SCH_REV1_03_14MAY2015_1800_CH.BREAKOUT BOARDS(SCH_1):INS14079185@MULTISENSORBREAKOUT.2-PIN HEADER.NORMAL(CHIPS)':
+ C_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):ins14079185@multisensorbreakout.\2-pin header.normal\(chips)',
+ P_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):page3_ins14079185@multisensorbreakout.\2-pin header.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ J7 '2-PIN HEADER_HDR_THVT_1X2_100_2':;
+
+SECTION_NUMBER 1
+ '@SENSORKIT-MULTISENSORSHIELD_BOARD_SCH_REV1_03_14MAY2015_1800_CH.BREAKOUT BOARDS(SCH_1):INS14079143@MULTISENSORBREAKOUT.2-PIN HEADER.NORMAL(CHIPS)':
+ C_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):ins14079143@multisensorbreakout.\2-pin header.normal\(chips)',
+ P_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):page3_ins14079143@multisensorbreakout.\2-pin header.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ J8 '2-PIN HEADER_HDR_THVT_1X2_100_2':;
+
+SECTION_NUMBER 1
+ '@SENSORKIT-MULTISENSORSHIELD_BOARD_SCH_REV1_03_14MAY2015_1800_CH.BREAKOUT BOARDS(SCH_1):INS14079157@MULTISENSORBREAKOUT.2-PIN HEADER.NORMAL(CHIPS)':
+ C_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):ins14079157@multisensorbreakout.\2-pin header.normal\(chips)',
+ P_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):page3_ins14079157@multisensorbreakout.\2-pin header.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ J9 '2-PIN HEADER_HDR_THVT_1X2_100_2':;
+
+SECTION_NUMBER 1
+ '@SENSORKIT-MULTISENSORSHIELD_BOARD_SCH_REV1_03_14MAY2015_1800_CH.BREAKOUT BOARDS(SCH_1):INS14079255@MULTISENSORBREAKOUT.2-PIN HEADER.NORMAL(CHIPS)':
+ C_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):ins14079255@multisensorbreakout.\2-pin header.normal\(chips)',
+ P_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):page3_ins14079255@multisensorbreakout.\2-pin header.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ R1 'R_R0603_10K':;
+
+SECTION_NUMBER 1
+ '@SENSORKIT-MULTISENSORSHIELD_BOARD_SCH_REV1_03_14MAY2015_1800_CH.BREAKOUT BOARDS(SCH_1):INS14172485@DISCRETE.R.NORMAL(CHIPS)':
+ C_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):ins14172485@discrete.\r.normal\(chips)',
+ P_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):page2_ins14172485@discrete.\r.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ R10 'R_R0603_10K':;
+
+SECTION_NUMBER 1
+ '@SENSORKIT-MULTISENSORSHIELD_BOARD_SCH_REV1_03_14MAY2015_1800_CH.BREAKOUT BOARDS(SCH_1):INS14118312@DISCRETE.R.NORMAL(CHIPS)':
+ C_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):ins14118312@discrete.\r.normal\(chips)',
+ P_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):page3_ins14118312@discrete.\r.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ R11 'R_R0603_0':;
+
+SECTION_NUMBER 1
+ '@SENSORKIT-MULTISENSORSHIELD_BOARD_SCH_REV1_03_14MAY2015_1800_CH.BREAKOUT BOARDS(SCH_1):INS14097176@DISCRETE.R.NORMAL(CHIPS)':
+ C_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):ins14097176@discrete.\r.normal\(chips)',
+ P_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):page3_ins14097176@discrete.\r.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ R12 'R_R0603_0':;
+
+SECTION_NUMBER 1
+ '@SENSORKIT-MULTISENSORSHIELD_BOARD_SCH_REV1_03_14MAY2015_1800_CH.BREAKOUT BOARDS(SCH_1):INS14097202@DISCRETE.R.NORMAL(CHIPS)':
+ C_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):ins14097202@discrete.\r.normal\(chips)',
+ P_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):page3_ins14097202@discrete.\r.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ R13 'R_R0603_0':;
+
+SECTION_NUMBER 1
+ '@SENSORKIT-MULTISENSORSHIELD_BOARD_SCH_REV1_03_14MAY2015_1800_CH.BREAKOUT BOARDS(SCH_1):INS14097228@DISCRETE.R.NORMAL(CHIPS)':
+ C_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):ins14097228@discrete.\r.normal\(chips)',
+ P_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):page3_ins14097228@discrete.\r.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ R14 'R_R0603_0':;
+
+SECTION_NUMBER 1
+ '@SENSORKIT-MULTISENSORSHIELD_BOARD_SCH_REV1_03_14MAY2015_1800_CH.BREAKOUT BOARDS(SCH_1):INS14097254@DISCRETE.R.NORMAL(CHIPS)':
+ C_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):ins14097254@discrete.\r.normal\(chips)',
+ P_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):page3_ins14097254@discrete.\r.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ R15 'R_R0603_0':;
+
+SECTION_NUMBER 1
+ '@SENSORKIT-MULTISENSORSHIELD_BOARD_SCH_REV1_03_14MAY2015_1800_CH.BREAKOUT BOARDS(SCH_1):INS14097280@DISCRETE.R.NORMAL(CHIPS)':
+ C_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):ins14097280@discrete.\r.normal\(chips)',
+ P_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):page3_ins14097280@discrete.\r.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ R16 'R_R0603_0':;
+
+SECTION_NUMBER 1
+ '@SENSORKIT-MULTISENSORSHIELD_BOARD_SCH_REV1_03_14MAY2015_1800_CH.BREAKOUT BOARDS(SCH_1):INS14097306@DISCRETE.R.NORMAL(CHIPS)':
+ C_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):ins14097306@discrete.\r.normal\(chips)',
+ P_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):page3_ins14097306@discrete.\r.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ R17 'R_R0603_0':;
+
+SECTION_NUMBER 1
+ '@SENSORKIT-MULTISENSORSHIELD_BOARD_SCH_REV1_03_14MAY2015_1800_CH.BREAKOUT BOARDS(SCH_1):INS14097332@DISCRETE.R.NORMAL(CHIPS)':
+ C_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):ins14097332@discrete.\r.normal\(chips)',
+ P_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):page3_ins14097332@discrete.\r.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ R18 'R_R0603_0':;
+
+SECTION_NUMBER 1
+ '@SENSORKIT-MULTISENSORSHIELD_BOARD_SCH_REV1_03_14MAY2015_1800_CH.BREAKOUT BOARDS(SCH_1):INS14097358@DISCRETE.R.NORMAL(CHIPS)':
+ C_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):ins14097358@discrete.\r.normal\(chips)',
+ P_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):page3_ins14097358@discrete.\r.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ R19 'R_R0603_0':;
+
+SECTION_NUMBER 1
+ '@SENSORKIT-MULTISENSORSHIELD_BOARD_SCH_REV1_03_14MAY2015_1800_CH.BREAKOUT BOARDS(SCH_1):INS14097933@DISCRETE.R.NORMAL(CHIPS)':
+ C_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):ins14097933@discrete.\r.normal\(chips)',
+ P_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):page3_ins14097933@discrete.\r.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ R20 'R_R0603_0':;
+
+SECTION_NUMBER 1
+ '@SENSORKIT-MULTISENSORSHIELD_BOARD_SCH_REV1_03_14MAY2015_1800_CH.BREAKOUT BOARDS(SCH_1):INS14097949@DISCRETE.R.NORMAL(CHIPS)':
+ C_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):ins14097949@discrete.\r.normal\(chips)',
+ P_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):page3_ins14097949@discrete.\r.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ R21 'R_R0603_0':;
+
+SECTION_NUMBER 1
+ '@SENSORKIT-MULTISENSORSHIELD_BOARD_SCH_REV1_03_14MAY2015_1800_CH.BREAKOUT BOARDS(SCH_1):INS14097965@DISCRETE.R.NORMAL(CHIPS)':
+ C_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):ins14097965@discrete.\r.normal\(chips)',
+ P_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):page3_ins14097965@discrete.\r.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ R22 'R_R0603_0':;
+
+SECTION_NUMBER 1
+ '@SENSORKIT-MULTISENSORSHIELD_BOARD_SCH_REV1_03_14MAY2015_1800_CH.BREAKOUT BOARDS(SCH_1):INS14097981@DISCRETE.R.NORMAL(CHIPS)':
+ C_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):ins14097981@discrete.\r.normal\(chips)',
+ P_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):page3_ins14097981@discrete.\r.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ R23 'R_R0603_0':;
+
+SECTION_NUMBER 1
+ '@SENSORKIT-MULTISENSORSHIELD_BOARD_SCH_REV1_03_14MAY2015_1800_CH.BREAKOUT BOARDS(SCH_1):INS14097997@DISCRETE.R.NORMAL(CHIPS)':
+ C_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):ins14097997@discrete.\r.normal\(chips)',
+ P_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):page3_ins14097997@discrete.\r.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ R24 'R_R0603_0':;
+
+SECTION_NUMBER 1
+ '@SENSORKIT-MULTISENSORSHIELD_BOARD_SCH_REV1_03_14MAY2015_1800_CH.BREAKOUT BOARDS(SCH_1):INS14098013@DISCRETE.R.NORMAL(CHIPS)':
+ C_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):ins14098013@discrete.\r.normal\(chips)',
+ P_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):page3_ins14098013@discrete.\r.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ R25 'R_R0603_0':;
+
+SECTION_NUMBER 1
+ '@SENSORKIT-MULTISENSORSHIELD_BOARD_SCH_REV1_03_14MAY2015_1800_CH.BREAKOUT BOARDS(SCH_1):INS14098029@DISCRETE.R.NORMAL(CHIPS)':
+ C_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):ins14098029@discrete.\r.normal\(chips)',
+ P_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):page3_ins14098029@discrete.\r.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ R26 'R_R0603_0':;
+
+SECTION_NUMBER 1
+ '@SENSORKIT-MULTISENSORSHIELD_BOARD_SCH_REV1_03_14MAY2015_1800_CH.BREAKOUT BOARDS(SCH_1):INS14098045@DISCRETE.R.NORMAL(CHIPS)':
+ C_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):ins14098045@discrete.\r.normal\(chips)',
+ P_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):page3_ins14098045@discrete.\r.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ R27 'R_R0603_0':;
+
+SECTION_NUMBER 1
+ '@SENSORKIT-MULTISENSORSHIELD_BOARD_SCH_REV1_03_14MAY2015_1800_CH.BREAKOUT BOARDS(SCH_1):INS14098397@DISCRETE.R.NORMAL(CHIPS)':
+ C_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):ins14098397@discrete.\r.normal\(chips)',
+ P_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):page3_ins14098397@discrete.\r.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ R28 'R_R0603_0':;
+
+SECTION_NUMBER 1
+ '@SENSORKIT-MULTISENSORSHIELD_BOARD_SCH_REV1_03_14MAY2015_1800_CH.BREAKOUT BOARDS(SCH_1):INS14098413@DISCRETE.R.NORMAL(CHIPS)':
+ C_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):ins14098413@discrete.\r.normal\(chips)',
+ P_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):page3_ins14098413@discrete.\r.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ R29 'R_R0603_0':;
+
+SECTION_NUMBER 1
+ '@SENSORKIT-MULTISENSORSHIELD_BOARD_SCH_REV1_03_14MAY2015_1800_CH.BREAKOUT BOARDS(SCH_1):INS14098429@DISCRETE.R.NORMAL(CHIPS)':
+ C_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):ins14098429@discrete.\r.normal\(chips)',
+ P_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):page3_ins14098429@discrete.\r.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ R30 'R_R0603_0':;
+
+SECTION_NUMBER 1
+ '@SENSORKIT-MULTISENSORSHIELD_BOARD_SCH_REV1_03_14MAY2015_1800_CH.BREAKOUT BOARDS(SCH_1):INS14098445@DISCRETE.R.NORMAL(CHIPS)':
+ C_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):ins14098445@discrete.\r.normal\(chips)',
+ P_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):page3_ins14098445@discrete.\r.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ R31 'R_R0603_0':;
+
+SECTION_NUMBER 1
+ '@SENSORKIT-MULTISENSORSHIELD_BOARD_SCH_REV1_03_14MAY2015_1800_CH.BREAKOUT BOARDS(SCH_1):INS14098461@DISCRETE.R.NORMAL(CHIPS)':
+ C_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):ins14098461@discrete.\r.normal\(chips)',
+ P_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):page3_ins14098461@discrete.\r.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ R32 'R_R0603_0':;
+
+SECTION_NUMBER 1
+ '@SENSORKIT-MULTISENSORSHIELD_BOARD_SCH_REV1_03_14MAY2015_1800_CH.BREAKOUT BOARDS(SCH_1):INS14098477@DISCRETE.R.NORMAL(CHIPS)':
+ C_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):ins14098477@discrete.\r.normal\(chips)',
+ P_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):page3_ins14098477@discrete.\r.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ R33 'R_R0603_0':;
+
+SECTION_NUMBER 1
+ '@SENSORKIT-MULTISENSORSHIELD_BOARD_SCH_REV1_03_14MAY2015_1800_CH.BREAKOUT BOARDS(SCH_1):INS14122921@DISCRETE.R.NORMAL(CHIPS)':
+ C_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):ins14122921@discrete.\r.normal\(chips)',
+ P_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):page3_ins14122921@discrete.\r.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ R34 'R_R0603_10K':;
+
+SECTION_NUMBER 1
+ '@SENSORKIT-MULTISENSORSHIELD_BOARD_SCH_REV1_03_14MAY2015_1800_CH.BREAKOUT BOARDS(SCH_1):INS14107395@DISCRETE.R.NORMAL(CHIPS)':
+ C_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):ins14107395@discrete.\r.normal\(chips)',
+ P_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):page2_ins14107395@discrete.\r.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ R35 'R_R0603_22':;
+
+SECTION_NUMBER 1
+ '@SENSORKIT-MULTISENSORSHIELD_BOARD_SCH_REV1_03_14MAY2015_1800_CH.BREAKOUT BOARDS(SCH_1):INS14126529@DISCRETE.R.NORMAL(CHIPS)':
+ C_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):ins14126529@discrete.\r.normal\(chips)',
+ P_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):page2_ins14126529@discrete.\r.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ R36 'R_R0603_10K':;
+
+SECTION_NUMBER 1
+ '@SENSORKIT-MULTISENSORSHIELD_BOARD_SCH_REV1_03_14MAY2015_1800_CH.BREAKOUT BOARDS(SCH_1):INS14128594@DISCRETE.R.NORMAL(CHIPS)':
+ C_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):ins14128594@discrete.\r.normal\(chips)',
+ P_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):page3_ins14128594@discrete.\r.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ R37 'R_R0603_10K':;
+
+SECTION_NUMBER 1
+ '@SENSORKIT-MULTISENSORSHIELD_BOARD_SCH_REV1_03_14MAY2015_1800_CH.BREAKOUT BOARDS(SCH_1):INS14128628@DISCRETE.R.NORMAL(CHIPS)':
+ C_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):ins14128628@discrete.\r.normal\(chips)',
+ P_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):page2_ins14128628@discrete.\r.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ R38 'R_R0603_10K':;
+
+SECTION_NUMBER 1
+ '@SENSORKIT-MULTISENSORSHIELD_BOARD_SCH_REV1_03_14MAY2015_1800_CH.BREAKOUT BOARDS(SCH_1):INS14128968@DISCRETE.R.NORMAL(CHIPS)':
+ C_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):ins14128968@discrete.\r.normal\(chips)',
+ P_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):page2_ins14128968@discrete.\r.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ R39 'R_R0603_0':;
+
+SECTION_NUMBER 1
+ '@SENSORKIT-MULTISENSORSHIELD_BOARD_SCH_REV1_03_14MAY2015_1800_CH.BREAKOUT BOARDS(SCH_1):INS14129249@DISCRETE.R.NORMAL(CHIPS)':
+ C_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):ins14129249@discrete.\r.normal\(chips)',
+ P_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):page3_ins14129249@discrete.\r.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ R8 'R_R0603_10K':;
+
+SECTION_NUMBER 1
+ '@SENSORKIT-MULTISENSORSHIELD_BOARD_SCH_REV1_03_14MAY2015_1800_CH.BREAKOUT BOARDS(SCH_1):INS14092105@DISCRETE.R.NORMAL(CHIPS)':
+ C_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):ins14092105@discrete.\r.normal\(chips)',
+ P_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):page3_ins14092105@discrete.\r.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ R9 'R_R0603_10K':;
+
+SECTION_NUMBER 1
+ '@SENSORKIT-MULTISENSORSHIELD_BOARD_SCH_REV1_03_14MAY2015_1800_CH.BREAKOUT BOARDS(SCH_1):INS14092237@DISCRETE.R.NORMAL(CHIPS)':
+ C_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):ins14092237@discrete.\r.normal\(chips)',
+ P_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):page3_ins14092237@discrete.\r.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ U1 'HVSOF5_3_SSOP5_BDE0600G':;
+
+SECTION_NUMBER 1
+ '@SENSORKIT-MULTISENSORSHIELD_BOARD_SCH_REV1_03_14MAY2015_1800_CH.BREAKOUT BOARDS(SCH_1):INS14000681@MINI LOW POWER MICRO EVAL BOARD.HVSOF5_3.NORMAL(CHIPS)':
+ C_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):ins14000681@\mini low power micro eval board\.\hvsof5_3.normal\(chips)',
+ P_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):page2_ins14000681@\mini low power micro eval board\.\hvsof5_3.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ U11 'KXG03_LGA_3X3X0P9_KXG03':;
+
+SECTION_NUMBER 1
+ '@SENSORKIT-MULTISENSORSHIELD_BOARD_SCH_REV1_03_14MAY2015_1800_CH.BREAKOUT BOARDS(SCH_1):INS14101192@MULTISENSORBREAKOUT.KXG03.NORMAL(CHIPS)':
+ C_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):ins14101192@multisensorbreakout.\kxg03.normal\(chips)',
+ P_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):page2_ins14101192@multisensorbreakout.\kxg03.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ U12 'SPM0423HD4H-WB_IC_4P72X3P76_':;
+
+SECTION_NUMBER 1
+ '@SENSORKIT-MULTISENSORSHIELD_BOARD_SCH_REV1_03_14MAY2015_1800_CH.BREAKOUT BOARDS(SCH_1):INS14123271@MULTISENSORBREAKOUT.SPM0423HD4H-WB.NORMAL(CHIPS)':
+ C_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):ins14123271@multisensorbreakout.\spm0423hd4h-wb.normal\(chips)',
+ P_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):page2_ins14123271@multisensorbreakout.\spm0423hd4h-wb.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ U13 'KXCJK_LGA_3X3X0P9_':;
+
+SECTION_NUMBER 1
+ '@SENSORKIT-MULTISENSORSHIELD_BOARD_SCH_REV1_03_14MAY2015_1800_CH.BREAKOUT BOARDS(SCH_1):INS14145816@KXCJK.KXCJK.NORMAL(CHIPS)':
+ C_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):ins14145816@kxcjk.\kxcjk.normal\(chips)',
+ P_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):page2_ins14145816@kxcjk.\kxcjk.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ U14 'KXCJK_LGA_3X3X0P9_':;
+
+SECTION_NUMBER 1
+ '@SENSORKIT-MULTISENSORSHIELD_BOARD_SCH_REV1_03_14MAY2015_1800_CH.BREAKOUT BOARDS(SCH_1):INS14153413@KXCJK.KXCJK.NORMAL(CHIPS)':
+ C_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):ins14153413@kxcjk.\kxcjk.normal\(chips)',
+ P_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):page2_ins14153413@kxcjk.\kxcjk.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ U15 'KXCJK_LGA_3X3X0P9_':;
+
+SECTION_NUMBER 1
+ '@SENSORKIT-MULTISENSORSHIELD_BOARD_SCH_REV1_03_14MAY2015_1800_CH.BREAKOUT BOARDS(SCH_1):INS14154119@KXCJK.KXCJK.NORMAL(CHIPS)':
+ C_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):ins14154119@kxcjk.\kxcjk.normal\(chips)',
+ P_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):page2_ins14154119@kxcjk.\kxcjk.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ U16 'KXCJK_LGA_3X3X0P9_':;
+
+SECTION_NUMBER 1
+ '@SENSORKIT-MULTISENSORSHIELD_BOARD_SCH_REV1_03_14MAY2015_1800_CH.BREAKOUT BOARDS(SCH_1):INS14155446@KXCJK.KXCJK.NORMAL(CHIPS)':
+ C_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):ins14155446@kxcjk.\kxcjk.normal\(chips)',
+ P_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):page2_ins14155446@kxcjk.\kxcjk.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ U2 'BM1383GLV_BM1383GLV_BM1383GLV':;
+
+SECTION_NUMBER 1
+ '@SENSORKIT-MULTISENSORSHIELD_BOARD_SCH_REV1_03_14MAY2015_1800_CH.BREAKOUT BOARDS(SCH_1):INS14046751@MULTISENSORBREAKOUT.BM1383GLV.NORMAL(CHIPS)':
+ C_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):ins14046751@multisensorbreakout.\bm1383glv.normal\(chips)',
+ P_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):page2_ins14046751@multisensorbreakout.\bm1383glv.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ U4 'HVSOF5_1_HVSOF5_BU52014HFV':;
+
+SECTION_NUMBER 1
+ '@SENSORKIT-MULTISENSORSHIELD_BOARD_SCH_REV1_03_14MAY2015_1800_CH.BREAKOUT BOARDS(SCH_1):INS13998702@MINI LOW POWER MICRO EVAL BOARD.HVSOF5_1.NORMAL(CHIPS)':
+ C_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):ins13998702@\mini low power micro eval board\.\hvsof5_1.normal\(chips)',
+ P_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):page2_ins13998702@\mini low power micro eval board\.\hvsof5_1.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ U5 'C-TQFN12-4.0X3.7-1_5.00_TQFN12_':;
+
+SECTION_NUMBER 1
+ '@SENSORKIT-MULTISENSORSHIELD_BOARD_SCH_REV1_03_14MAY2015_1800_CH.BREAKOUT BOARDS(SCH_1):INS14003218@ROHMSENSORPLATFORMSCHEMATIC_20140729_01.C-TQFN12-4.0X3.7-1_5.00.NORMAL(CHIPS)':
+ C_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):ins14003218@rohmsensorplatformschematic_20140729_01.\c-tqfn12-4.0x3.7-1_5.00.normal\(chips)',
+ P_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):page2_ins14003218@rohmsensorplatformschematic_20140729_01.\c-tqfn12-4.0x3.7-1_5.00.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ U6 'RPR-0521_0_IC_3P94X2P36_RPR-052':;
+
+SECTION_NUMBER 1
+ '@SENSORKIT-MULTISENSORSHIELD_BOARD_SCH_REV1_03_14MAY2015_1800_CH.BREAKOUT BOARDS(SCH_1):INS14013253@ROHM_SENSOR_PLATFORM_BREAKOUT_BOARD_SCH_REV1.02_20141208.RPR-0521_0.NORMAL(CHIPS)':
+ C_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):ins14013253@\rohm_sensor_platform_breakout_board_sch_rev1.02_20141208\.\rpr-0521_0.normal\(chips)',
+ P_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):page2_ins14013253@\rohm_sensor_platform_breakout_board_sch_rev1.02_20141208\.\rpr-0521_0.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ U7 'BH1745NUC_1_BH1745NUC_BH1745NUC':;
+
+SECTION_NUMBER 1
+ '@SENSORKIT-MULTISENSORSHIELD_BOARD_SCH_REV1_03_14MAY2015_1800_CH.BREAKOUT BOARDS(SCH_1):INS14046425@SENSORKIT-MULTISENSORSHIELD_BOARD_SCH_REV1_02_11MAY2015_001.BH1745NUC_1.NORMAL(CHIPS)':
+ C_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):ins14046425@\sensorkit-multisensorshield_board_sch_rev1_02_11may2015_001\.\bh1745nuc_1.normal\(chips)',
+ P_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):page2_ins14046425@\sensorkit-multisensorshield_board_sch_rev1_02_11may2015_001\.\bh1745nuc_1.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ U8 'LGA_3.9_LGA_3X3X0P9_KMX62':;
+
+SECTION_NUMBER 1
+ '@SENSORKIT-MULTISENSORSHIELD_BOARD_SCH_REV1_03_14MAY2015_1800_CH.BREAKOUT BOARDS(SCH_1):INS14003316@ROHM_SENSOR_PLATFORM_BREAKOUT_BOARD_SCH_REV1.02_20141208.LGA_3.9.NORMAL(CHIPS)':
+ C_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):ins14003316@\rohm_sensor_platform_breakout_board_sch_rev1.02_20141208\.\lga_3.9.normal\(chips)',
+ P_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):page2_ins14003316@\rohm_sensor_platform_breakout_board_sch_rev1.02_20141208\.\lga_3.9.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ U9 'KX122_LGA_2X2X0P9_KX122':;
+
+SECTION_NUMBER 1
+ '@SENSORKIT-MULTISENSORSHIELD_BOARD_SCH_REV1_03_14MAY2015_1800_CH.BREAKOUT BOARDS(SCH_1):INS14062749@MULTISENSORBREAKOUT.KX122.NORMAL(CHIPS)':
+ C_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):ins14062749@multisensorbreakout.\kx122.normal\(chips)',
+ P_PATH='@\sensorkit-multisensorshield_board_sch_rev1_03_14may2015_1800_ch\.\breakout boards\(sch_1):page2_ins14062749@multisensorbreakout.\kx122.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+END.

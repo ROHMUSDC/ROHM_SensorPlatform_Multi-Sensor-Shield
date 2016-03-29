@@ -18,5 +18,5 @@ LEADER                 12
 CODE                   ASCII
 SEPARATE               NO
 DRILLING               LAYER-PAIR
-BACKDRILL              NO
+BACKDRILL              YES
 CAVITY                 NO

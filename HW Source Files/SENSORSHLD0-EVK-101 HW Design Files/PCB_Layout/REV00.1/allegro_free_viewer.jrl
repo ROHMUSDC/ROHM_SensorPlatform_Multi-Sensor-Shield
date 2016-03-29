@@ -1,0 +1,42 @@
+\t (00:00:40) allegro_free_viewer 16.6 S002 (v16-6-0A) Windows 32
+\t (00:00:40)     Journal start - Fri Mar 18 10:21:37 2016
+\t (00:00:40)         Host=ROHM10745 User=kbahar Pid=6252 CPUs=4
+\t (00:00:40) 
+\d (00:00:40) Database opened: C:/Users/kbahar/Documents/GitHub/ROHM_SensorPlatform_Multi-Sensor-Shield/HW Source Files/SENSORSHLD1-EVK-101 HW Design Files/PCB_Layout/REV00.1/ROHM_SENSORSHLD1-EVK-101_BRD_REV01_2015-09-25.brd
+\i (00:00:50) setwindow form.vf_vis
+\i (00:00:50) FORM vf_vis all_drc_visible NO 
+\i (00:00:51) FORM vf_vis all_all_visible YES 
+\i (00:00:51) FORM vf_vis all_all_visible NO 
+\i (00:00:52) FORM vf_vis 1 all_colorvisible YES 
+\i (00:00:53) FORM vf_vis 2 all_colorvisible YES 
+\i (00:00:54) setwindow pcb
+\i (00:00:54) zoom in 1 
+\i (00:00:54) setwindow pcb
+\i (00:00:54) zoom in 1505.538 940.784
+\i (00:00:54) trapsize 12639
+\i (00:00:54) zoom in 1 
+\i (00:00:54) setwindow pcb
+\i (00:00:54) zoom in 1505.538 940.785
+\i (00:00:54) trapsize 6320
+\i (00:00:55) zoom out 1 
+\i (00:00:55) setwindow pcb
+\i (00:00:55) zoom out 1504.274 939.521
+\i (00:00:55) trapsize 12639
+\i (00:00:57) zoom out 1 
+\i (00:00:57) setwindow pcb
+\i (00:00:57) zoom out 2437.056 1093.721
+\i (00:00:57) trapsize 25279
+\i (00:01:00) show measure 
+\i (00:01:02) pick grid 10.307 901.602
+\t (00:01:02) last pick:  10.000  900.000
+\i (00:01:05) pick grid -1637.861 1068.441
+\t (00:01:05) last pick:  -1640.000  1070.000
+\i (00:01:08) pick grid 0.195 663.983
+\t (00:01:09) last pick:  0.000  665.000
+\i (00:01:12) pick grid 3094.301 679.150
+\t (00:01:12) last pick:  3095.000  680.000
+\i (00:01:44) setwindow text
+\i (00:01:44) close 
+\i (06:58:01) setwindow pcb
+\i (06:58:01) exit 
+\t (06:58:02)     Journal end - Fri Mar 18 17:18:59 2016
