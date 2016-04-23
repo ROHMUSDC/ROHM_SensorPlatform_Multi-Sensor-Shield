@@ -23,7 +23,7 @@
   * Special Functions:
     * KNOWLES SPM0423HD4H-WB – Digital Microphone
       * Primarily for use with NXP MCU Lineup
-    * KIONIX KX123-1039, KX124-1050 – Accelerometer
+    * KIONIX KX122-1037, KX122-1048 – Accelerometer
       * For four corner Accelerometer algorithm development
       * Difference between 1039 and 1050 is the I2C register address scheme to control all 4 accelerometers using a single I2C master
 
