@@ -1,6 +1,7 @@
 # ROHM Sensor Shield Public Repository
-* Applicable Part Number: ROHM_SENSORSHLD0-EVK-101, ROHM_SENSORSHLD1-EVK-101
-* Description:  A single board containing all ROHM Sensors with a common platform pin out (standard Arduino header)
+* Applicable Part Number: ROHM_SENSORSHLD1-EVK-101
+* Description:  A single board containing all ROHM Sensors with a common platform pin out
+* Website Link: http://www.rohm.com/web/global/multi-sensor-shield
 * Developer: USDC Applications Engineering Team, ROHM Semiconductor
 * Date Started: March 2015
 * Related Projects: https://github.com/ROHMUSDC/ROHMSensorPlatformEVK
@@ -23,9 +24,10 @@
   * Special Functions:
     * KNOWLES SPM0423HD4H-WB – Digital Microphone
       * Primarily for use with NXP MCU Lineup
-    * KIONIX KX122-1037, KX122-1048 – Accelerometer
+    * KIONIX x2 KX122-1037, x2 KX122-1048 – Accelerometer
       * For four corner Accelerometer algorithm development
-      * Difference between 1039 and 1050 is the I2C register address scheme to control all 4 accelerometers using a single I2C master
+      * Difference between KX122-1037 and KX122-1048 is the I2C register address scheme to control all 4 accelerometers using a single I2C master.  
+	  * All other accelerometer functionality is the same.  See FAQ section for additional information.
 
 ----
 ### Repository Contents
@@ -66,6 +68,14 @@
 	* Changed pressure sensor from BM1383GLV to BM1383AGLV.  (No HW change, but new PN has new FW I2C register mapping)
 	* PN Change from ML8511 to ML8511A (only chip labelling change)
 	* Kionix Corner Accelerometer: one PN, KX123-1050, has been adjusted to the KX124-1050
+	
+* Question:
+	* I see x2 KX122-1037 and x2 KX122-1048 Accelerometers on the board.  What is the difference between these two part numbers?
+* Answer: 
+	  * The difference between KX122-1037 and KX122-1048 is the I2C register address scheme to control all 4 accelerometers using a single I2C master.  
+	  * The KX122-1037 has a 7-bit register address of 0x1E or 0x1F (0x1E if ADDR pin is tied to GND, and 0x1F is ADDR pin is tied to VDD)
+	  * the KX122-1048 has a 7-bit register address of ... (coming soon!)
+	  * All other accelerometer functionality is the same.  Please see the datasheet for both devices at the following page: http://www.kionix.com/product/KX122-1037
 	
 ----
 ### DISCLAIMER
