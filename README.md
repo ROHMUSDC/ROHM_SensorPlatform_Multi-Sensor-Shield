@@ -1,5 +1,5 @@
 # ROHM Sensor Shield Public Repository
-* Applicable Part Number: ROHM_SENSORSHLD1-EVK-101
+* Applicable Part Number: SENSORSHLD1-EVK-101
 * Description:  A single board containing all ROHM Sensors with a common platform pin out
 * Website Link: http://www.rohm.com/web/global/multi-sensor-shield
 * Developer: USDC Applications Engineering Team, ROHM Semiconductor
@@ -8,7 +8,7 @@
 
 ----
 ### ROHM Sensor Shield Included Sensors
-* ROHM_SENSORSHLD1-EVK-101
+* SENSORSHLD1-EVK-101
   * Core Sensors:
     * ROHM BDE0600G – Analog Temperature Sensor
     * ROHM BM1383AGLV – Digital Barometric Pressure Sensor
@@ -60,7 +60,7 @@
 ----
 ### FAQ
 * Question:
-	* What is the difference between ROHM_SENSORSHLD0-EVK-101 and ROHM_SENSORSHLD1-EVK-101?
+	* What is the difference between SENSORSHLD0-EVK-101 and SENSORSHLD1-EVK-101?
 * Answer:
 	* Removed Erroneous Jumpers
 	* Removed J5 to J11 and adjusted routing for J1 to J4
@@ -74,7 +74,7 @@
 * Answer: 
 	  * The difference between KX122-1037 and KX122-1048 is the I2C register address scheme to control all 4 accelerometers using a single I2C master.  
 	  * The KX122-1037 has a 7-bit register address of 0x1E or 0x1F (0x1E if ADDR pin is tied to GND, and 0x1F is ADDR pin is tied to VDD)
-	  * the KX122-1048 has a 7-bit register address of ... (coming soon!)
+	  * The KX122-1048 has a 7-bit register address of 0x1C or 0x1D (0x1C if ADDR pin is tied to GND, and 0x1D is ADDR pin is tied to VDD)
 	  * All other accelerometer functionality is the same.  Please see the datasheet for both devices at the following page: http://www.kionix.com/product/KX122-1037
 	
 ----
