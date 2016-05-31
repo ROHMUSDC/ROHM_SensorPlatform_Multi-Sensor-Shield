@@ -76,7 +76,18 @@
 	  * The KX122-1037 has a 7-bit register address of 0x1E or 0x1F (0x1E if ADDR pin is tied to GND, and 0x1F is ADDR pin is tied to VDD)
 	  * The KX122-1048 has a 7-bit register address of 0x1C or 0x1D (0x1C if ADDR pin is tied to GND, and 0x1D is ADDR pin is tied to VDD)
 	  * All other accelerometer functionality is the same.  Please see the datasheet for both devices at the following page: http://www.kionix.com/product/KX122-1037
-	
+
+* Question:
+	* I've programmed my Arduino Uno board with the sample code provided in this repository.  However, The I2C operation does not seem to work. Do you know what may be the cause?
+* Answer:
+	* On the Arduino Uno board, please note that the I2C pins connected to the top left header are actually routed to pins A4 and A5 on the bottom right connector.  
+	* This conflicts with the UV Sensor ADC output and the KX122 INT pin already existing on the board.  
+	* Thus, in order to re-route this on our board, we suggest the following rework…
+		* Remove R27, R31, R32
+		* For UV Sensor Operation, Tie the top pad of R31 to the bottom pad of R27
+		* (Optional) if KX122 INT is required, please add wire HW rework from top pad of R32 to any open pin you wish to use for interrupt pin signal. However, it is not used in the platform application example provided by the platform guide.
+	* Please see the documentation "ROHM_SENSORSHLD1-EVK-101_ArduinoUsageManual_2016-05-31.pdf" or "ROHM_SENSORSHLD1-EVK-101_PlatformGuide_Arduino_2016-05-31.pdf" for additional details of this rework.
+
 ----
 ### DISCLAIMER
 This Technical Data is protected under copyright laws.
