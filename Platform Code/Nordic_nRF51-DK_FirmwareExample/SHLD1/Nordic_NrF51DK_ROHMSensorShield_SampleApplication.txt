@@ -1,0 +1,1 @@
+https://developer.mbed.org/teams/ROHMUSDC/code/Nordic_UART_TEMPLATE_ROHM_SHLD1Update/
