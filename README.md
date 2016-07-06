@@ -83,7 +83,7 @@
 	* On the Arduino Uno board, please note that the I2C pins connected to the top left header are actually routed to pins A4 and A5 on the bottom right connector.  
 	* This conflicts with the UV Sensor ADC output already existing on the board.  
 	* Thus, in order to re-route this on our board, we suggest the following rework:
-		* To disconnect the nets, remove R27 and R32
+		* To disconnect the nets, remove R27 and R31
 		* For UV Sensor Operation, connect the top pad of R31 to the bottom pad of R27
 	* Please see the documentation "ROHM_SENSORSHLD1-EVK-101_ArduinoUsageManual_2016-05-31.pdf" or "ROHM_SENSORSHLD1-EVK-101_PlatformGuide_Arduino_2016-05-31.pdf" for additional details of this rework.	
 
