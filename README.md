@@ -50,7 +50,7 @@
 * Nordic Semiconductor nRF51-DK, Firmware Example and Documentation 
 	*  Recommended for BTLE Low Power Sensor Applications
     *  MBED Repository Page: https://developer.mbed.org/teams/ROHMUSDC/code/Nordic_UART_TEMPLATE_ROHM/
-* ROHM Sensor Platform Kit: Firmware Example  Only
+* ROHM Sensor Platform Kit: Firmware Example Only
 	*  ROHM Sensor Platform Repository: https://github.com/ROHMUSDC/ROHMSensorPlatformEVK
 * MultiTech Dragonfly and MTUDK2, Firmware Example and Documentation
 	*  Recommended for Cellular Network Compatibility Applications
@@ -58,9 +58,9 @@
 
 ----
 ### FAQ
-* Question:
+* Question 1:
 	* What is the difference between SENSORSHLD0-EVK-101 and SENSORSHLD1-EVK-101?
-* Answer:
+* Answer 1:
 	* Removed Erroneous Jumpers
 	* Removed J5 to J11 and adjusted routing for J1 to J4
 	* Added ROHM BM1422GMV Magnetometer, 1.8V level shifter, and 1.8V LDO (for Magnetometer usage)
@@ -68,24 +68,24 @@
 	* PN Change from ML8511 to ML8511A (only chip labelling change)
 	* Kionix Corner Accelerometer: one PN, KX123-1050, has been adjusted to the KX124-1050
 
-* Question:
+* Question 2:
 	* I just purchased a SENSORSHLD1-EVK-101. After testing it I noticed a "yellow sticker" on the back of the board and the pressure sensor code doesn't seem to work.  What am I doing wrong here?
-* Answer:
+* Answer 2:
 	* The yellow sticker on-board designates that the board was built using the the same SCH/BOM/LAYOUT as the SENSORSHLD1-EVK-101 design files show, however implements BM1383GLV instead of BM1383AGLV.
-	* Please refer to the sensor difference explaination between the BM1383GLV vs. BM1383AGLV at the following epository link:
+	* Please refer to the sensor difference explanation between the BM1383GLV vs. BM1383AGLV at the following repository link:
 		* ...ROHM_SensorPlatform_Multi-Sensor-Shield\Documentation\Sensor Datasheets\ROHM_PRESSURE_BM1383xGLV\BM1383AGLV_changing_specification160127.pdf
 	
-* Question:
+* Question 3:
 	* I see x2 KX122-1037 and x2 KX122-1048 Accelerometers on the board.  What is the difference between these two part numbers?
-* Answer: 
+* Answer 3: 
 	  * The difference between KX122-1037 and KX122-1048 is the I2C register address scheme to control all 4 accelerometers using a single I2C master.  
 	  * The KX122-1037 has a 7-bit register address of 0x1E or 0x1F (0x1E if ADDR pin is tied to GND, and 0x1F is ADDR pin is tied to VDD)
 	  * The KX122-1048 has a 7-bit register address of 0x1C or 0x1D (0x1C if ADDR pin is tied to GND, and 0x1D is ADDR pin is tied to VDD)
 	  * All other accelerometer functionality is the same.  Please see the datasheet for both devices at the following page: http://www.kionix.com/product/KX122-1037
 
-* Question:
+* Question 4:
 	* I've programmed my Arduino Uno board with the sample code provided in this repository.  However, The I2C operation does not seem to work. Do you know what may be the cause?
-* Answer:
+* Answer 4:
 	* On the Arduino Uno board, please note that the I2C pins connected to the top left header are actually routed to pins A4 and A5 on the bottom right connector.  
 	* This conflicts with the UV Sensor ADC output already existing on the board.  
 	* Thus, in order to re-route this on our board, we suggest the following rework:
