@@ -38,7 +38,8 @@ First Revision Posted to Git on 15 June 2015
 #define AnalogUV    //ML8511
 #define HallSen     //BU52014
 #define KMX62       //KMX62
-#define Pressure    //BM1383GLV
+//#define Pressure    //BM1383AGLV
+#define PressureOld    //BM1383GLV
 #define ALSProx     //RPR-0521
 #define Color       //BH1745
 #define KX122       //KX122
@@ -70,6 +71,7 @@ int ADCpin_AnalogUV = A0;
 
 int sensorValue = 0;
 float sensorConvert = 0;
+unsigned int j;
 
 //Digital Input Globals - Hall Sensor
 #ifdef HallSen
@@ -125,6 +127,20 @@ float BM1383_Deci = 0;
 float BM1383_Pres_Conv_Out = 0;
 #endif
 
+#ifdef PressureOld
+int BM1383_DeviceAddress = 0xBA;  //this is the 8bit address, 7bit address = 0x5D
+int BM1383_Temp_highByte = 0;
+int BM1383_Temp_lowByte = 0;
+int BM1383_Pres_highByte = 0;
+int BM1383_Pres_lowByte = 0;
+int BM1383_Pres_leastByte = 0;
+
+int BM1383_Temp_Out = 0;
+float BM1383_Temp_Conv_Out = 0;
+float BM1383_Var = 0;
+float BM1383_Deci = 0;
+float BM1383_Pres_Conv_Out = 0;
+#endif
 
 #ifdef ALSProx
 int RPR0521_DeviceAddress = 0x70;  //this is the 8bit address, 7bit address = 0x5D
@@ -235,7 +251,7 @@ float BM1422_Mag_Z = 0;
 void setup()
 {
   //Wire.begin();        // start I2C functionality
-  Serial.begin(9600);  // start serial port at 9600 bps
+  Serial.begin(115200);  // start serial port at 9600 bps
   while (!Serial) {
     ; // wait for serial port to connect. Needed for Leonardo only
   }
@@ -279,7 +295,7 @@ void setup()
  #endif
  //----- END Initialization for KMX62 Digital Accel/Mag Sensor -----
 
- //----- Start Initialization for BM1383 Digital Pressure Sensor -----
+ //----- Start Initialization for BM1383A Digital Pressure Sensor -----
  #ifdef Pressure
   //BM1383GLV Init Sequence
   // 1. PWR_DOWN (0x12), write (0x01)
@@ -300,7 +316,30 @@ void setup()
   i2c_write(0x14);
   i2c_write(0xC4);
   i2c_stop();
+ #endif
+  //----- END Initialization for BM1383A Digital Pressure Sensor -----
+
+//----- Start Initialization for BM1383 Digital Pressure Sensor -----
+ #ifdef PressureOld
+  //BM1383GLV Init Sequence
+  // 1. PWR_DOWN (0x12), write (0x01)
+  // 1. SLEEP (0x13), write (0x01)
+  // 2. Mode Control (0x14), write (0xC4)
   
+  i2c_start(BM1383_DeviceAddress);  //This needs the 8 bit address (7bit Device Address + RW bit... Read = 1, Write = 0)
+  i2c_write(0x12);
+  i2c_write(0x01);
+  i2c_stop();
+  
+  i2c_start(BM1383_DeviceAddress);  //This needs the 8 bit address (7bit Device Address + RW bit... Read = 1, Write = 0)
+  i2c_write(0x13);
+  i2c_write(0x01);
+  i2c_stop();
+  
+  i2c_start(BM1383_DeviceAddress);  //This needs the 8 bit address (7bit Device Address + RW bit... Read = 1, Write = 0)
+  i2c_write(0x14);
+  i2c_write(0xC4);
+  i2c_stop();
  #endif
   //----- END Initialization for BM1383 Digital Pressure Sensor -----
   
@@ -475,12 +514,17 @@ void setup()
 
 void loop()
 {
-  
   digitalWrite(13, HIGH);   // turn the LED on (HIGH is the voltage level)
   delay(250);              // wait for 250ms
   digitalWrite(13, LOW);    // turn the LED off by making the voltage LOW
   delay(250);              // wait for 250ms
 
+  //Clear the Display to make data easier to read
+  for(j = 0; j<26; j++){
+    Serial.write("\033[F");
+    Serial.write("\033[J");
+  }
+  
   //---------- Start Code for Reading BDE0600G Analog Temperature Sensor ----------
   #ifdef AnalogTemp
 
@@ -726,7 +770,7 @@ void loop()
   #endif
   //---------- END Code for Reading KMX62 Kionix Accelerometer+Mag Sensor ----------    
  
-  //---------- Start Code for Reading BM1383 Pressure Sensor ----------  
+  //---------- Start Code for Reading BM1383A Pressure Sensor ----------  
   #ifdef Pressure
   
   // Start Getting Data from Pressure Sensor
@@ -769,7 +813,45 @@ void loop()
   Serial.write(0x0D);  //Print Carrage Return
   
    #endif
-  //---------- END Code for Reading BM1383 Pressure Sensor ----------    
+  //---------- END Code for Reading BM1383A Pressure Sensor ----------    
+
+  //---------- Start Code for Reading BM1383 Pressure Sensor ----------  
+  #ifdef PressureOld
+  
+  // Start Getting Data from Pressure Sensor
+  i2c_start(BM1383_DeviceAddress);
+  i2c_write(0x1A);
+  i2c_rep_start(BM1383_DeviceAddress | 1);  // Or-ed with "1" for read bit
+  //For Old version of PRessure Sensor (BM1383GLV)
+  BM1383_Temp_highByte = i2c_read(false);
+  BM1383_Temp_lowByte = i2c_read(false);
+  BM1383_Pres_highByte = i2c_read(false);
+  BM1383_Pres_lowByte = i2c_read(false);
+  BM1383_Pres_leastByte = i2c_read(true);
+
+  i2c_stop();
+ 
+  BM1383_Temp_Out = (BM1383_Temp_highByte<<8) | (BM1383_Temp_lowByte);
+  BM1383_Temp_Conv_Out = (float)BM1383_Temp_Out/32;
+  
+  BM1383_Var  = (BM1383_Pres_highByte<<3) | (BM1383_Pres_lowByte >> 5);
+  BM1383_Deci = ((BM1383_Pres_lowByte & 0x1f) << 6 | ((BM1383_Pres_leastByte >> 2)));
+  BM1383_Deci = (float)BM1383_Deci* 0.00048828125;  //0.00048828125 = 2^-11
+  BM1383_Pres_Conv_Out = (BM1383_Var + BM1383_Deci);   //question pending here...
+ 
+  Serial.write("BM1383 (Temp) = ");
+  Serial.print(BM1383_Temp_Conv_Out);
+  Serial.write(" degC");
+  Serial.write(0x0A);  //Print Line Feed
+  Serial.write(0x0D);  //Print Carrage Return
+  Serial.write("BM1383 (Pres) = ");
+  Serial.print(BM1383_Pres_Conv_Out);
+  Serial.write(" hPa");
+  Serial.write(0x0A);  //Print Line Feed
+  Serial.write(0x0D);  //Print Carrage Return
+  
+   #endif
+  //---------- END Code for Reading BM1383 Pressure Sensor ----------
 
    //----- Start Code for Reading RPR-0521 ALS/PROX Sensor -----
   #ifdef ALSProx
@@ -1054,8 +1136,9 @@ else {
   Serial.write(0x0D);  //Print Carrage Return
 #endif
 
-  Serial.write(0x0A); //Print Line Feed
-  Serial.write(0x0D); //Print Carrage Return
+
+//  Serial.write(0x0A); //Print Line Feed
+//  Serial.write(0x0D); //Print Carrage Return
 }
 
 void I2C_CheckACK()

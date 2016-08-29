@@ -11,14 +11,13 @@
 * SENSORSHLD1-EVK-101
   * Core Sensors:
     * ROHM BDE0600G – Analog Temperature Sensor
-    * ROHM BM1383AGLV – Digital Barometric Pressure Sensor
-    * ROHM BU52014HFV – Hall Switch Sensor (Omnipolar with Polarity Discrimination)
+    * ROHM BM1383AGLV – Digital Barometric Pressure Sensor (NOTE: Yellow sticker designates BM1383GLV on board... See FAQ, Question 2)
+    * ROHM BU52014HFV – Hall Switch Sensor, Omnipolar with Polarity Discrimination
     * ROHM BM1422GMV – Magnetometer Sensor
     * KIONIX KX122 – Digital Accelerometer
     * KIONIX KMX62 – Digital Magnetometer and Accelerometer
     * KIONIX KXG03 – Digital Gyroscope and Accelerometer
     * LAPIS ML8511A – Analog UV Sensor
-    * LAPIS ML8523 – Digital UV Sensor with UV-A and UV-B Filtering
     * ROHM RPR-0521 – Digital Ambient Light Sensor and Proximity Sensor
     * ROHM BH1745 – Digital Color Sensor
   * Special Functions:
@@ -68,6 +67,13 @@
 	* Changed pressure sensor from BM1383GLV to BM1383AGLV.  (No HW change, but new PN has new FW I2C register mapping)
 	* PN Change from ML8511 to ML8511A (only chip labelling change)
 	* Kionix Corner Accelerometer: one PN, KX123-1050, has been adjusted to the KX124-1050
+
+* Question:
+	* I just purchased a SENSORSHLD1-EVK-101. After testing it I noticed a "yellow sticker" on the back of the board and the pressure sensor code doesn't seem to work.  What am I doing wrong here?
+* Answer:
+	* The yellow sticker on-board designates that the board was built using the the same SCH/BOM/LAYOUT as the SENSORSHLD1-EVK-101 design files show, however implements BM1383GLV instead of BM1383AGLV.
+	* Please refer to the sensor difference explaination between the BM1383GLV vs. BM1383AGLV at the following epository link:
+		* ...ROHM_SensorPlatform_Multi-Sensor-Shield\Documentation\Sensor Datasheets\ROHM_PRESSURE_BM1383xGLV\BM1383AGLV_changing_specification160127.pdf
 	
 * Question:
 	* I see x2 KX122-1037 and x2 KX122-1048 Accelerometers on the board.  What is the difference between these two part numbers?

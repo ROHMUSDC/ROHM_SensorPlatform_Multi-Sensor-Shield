@@ -378,7 +378,7 @@ void periodicCallback(void)
             //transmit data
             len = snprintf((char*) buf, MAX_REPLY_LEN, "Color Sensor:");
             m_ble.updateCharacteristicValue(m_uart_service_ptr->getRXCharacteristicHandle(), buf, len);
-            wait_ms(20); 
+            wait_ms(20);
             
             len = snprintf((char*) buf, MAX_REPLY_LEN, "  Red= %d ADC", BH1745_Red);
             m_ble.updateCharacteristicValue(m_uart_service_ptr->getRXCharacteristicHandle(), buf, len);
@@ -849,7 +849,7 @@ int main(void)
     #ifdef RPR0521
     // 1. Mode Control (0x41), write (0xC6): ALS EN, PS EN, 100ms measurement for ALS and PS, PS_PULSE=1
     // 2. ALS_PS_CONTROL (0x42), write (0x03): LED Current = 200mA
-    // 3. PERSIST (0x43), write (0x20): PS Gain x4  
+    // 3. PERSIST (0x43), write (0x20): PS Gain x4
     i2c.write(RPR0521_addr_w, &RPR0521_ModeControl[0], 2, false);
     i2c.write(RPR0521_addr_w, &RPR0521_ALSPSControl[0], 2, false);
     i2c.write(RPR0521_addr_w, &RPR0521_Persist[0], 2, false);
