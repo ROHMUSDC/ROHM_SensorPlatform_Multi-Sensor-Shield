@@ -33,6 +33,7 @@
 * "Documentation" Folder
   * "Sensor Shield General Datasheet" Folder - Contains the General Datasheet for this Shield Board
   * "Sensor Datasheets" Folder - Contains Datasheets for sensors on the Shield Board
+  * "CE Declaration of Conformity" - Contains CE DOC along with all technical files associated with compliance
 * "HW Source Files" Folder 
   * "SENSORSHLD0-EVK-101 HW Design Files" Folder - Contains Schematic, BOM, Layout, Gerber Files for this revision of the Shield Board
   * "SENSORSHLD1-EVK-101 HW Design Files" Folder - Contains Schematic, BOM, Layout, Gerber Files for this revision of the shield Board
