@@ -72,7 +72,7 @@
 * Question 2:
 	* I just purchased a SENSORSHLD1-EVK-101. After testing it I noticed a "yellow sticker" on the back of the board and the pressure sensor code doesn't seem to work.  What am I doing wrong here?
 * Answer 2:
-	* The yellow sticker on-board designates that the board was built using the the same SCH/BOM/LAYOUT as the SENSORSHLD1-EVK-101 design files show, however implements BM1383GLV instead of BM1383AGLV.
+	* The yellow sticker on-board designates that the board was built using the same SCH/BOM/LAYOUT as the SENSORSHLD1-EVK-101 design files show, however implements BM1383GLV instead of BM1383AGLV.
 	* Please refer to the sensor difference explanation between the BM1383GLV vs. BM1383AGLV at the following repository link:
 		* ...ROHM_SensorPlatform_Multi-Sensor-Shield\Documentation\Sensor Datasheets\ROHM_PRESSURE_BM1383xGLV\BM1383AGLV_changing_specification160127.pdf
 	

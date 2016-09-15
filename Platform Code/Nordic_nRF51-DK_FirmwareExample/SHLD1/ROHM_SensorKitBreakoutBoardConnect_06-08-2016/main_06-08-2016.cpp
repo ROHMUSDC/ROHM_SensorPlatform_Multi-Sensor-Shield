@@ -59,7 +59,8 @@
 #define KMX62               //KMX61, Accel/Mag Sensor
 #define Color               //BH1745, Color Sensor
 #define KX122               //KX122, Accelerometer Sensor
-#define Pressure            //BM1383, Barometric Pressure Sensor
+//#define BM1383A            	//BM1383A, Barometric Pressure Sensor (NON-YELLOW STICKERED BOARDS)
+#define BM1383            	//BM1383, Barometric Pressure Sensor (YELLOW STICKERED BOARDS)
 #define Magnetometer		//BM1422GMV, MI Magnetometer Sensor
 #define KXG03               //KXG03, Gyroscopic Sensor
 
@@ -210,7 +211,32 @@ int         KX122_Accel_Z_LB = 0;
 int         KX122_Accel_Z_HB = 0;
 #endif
 
-#ifdef Pressure
+#ifdef BM1383A
+int         Press_addr_w = 0xBA;
+int         Press_addr_r = 0xBB;
+
+char        PWR_DOWN[2] = {0x12, 0x01};
+char        SLEEP[2] = {0x13, 0x01};
+char        Mode_Control[2] = {0x14, 0xC4};
+
+char        Press_Content_ReadData[6];
+char        Press_Addr_ReadData =0x1A;
+
+int         BM1383_Temp_highByte;
+int         BM1383_Temp_lowByte;
+int         BM1383_Pres_highByte;
+int         BM1383_Pres_lowByte;
+int         BM1383_Pres_leastByte; 
+
+short int   BM1383_Temp_Out;
+float       BM1383_Temp_Conv_Out;
+float       BM1383_Pres_Conv_Out;
+
+float       BM1383_Var;
+float       BM1383_Deci;
+#endif
+
+#ifdef BM1383
 int         Press_addr_w = 0xBA;
 int         Press_addr_r = 0xBB;
 
@@ -607,7 +633,7 @@ void periodicCallback(void)
         i++;
     }
     else if (i == 8){
-        #ifdef Pressure
+        #ifdef BM1383A
         if (m_ble.getGapState().connected) {
             //Read color Portion from the IC
             i2c.write(Press_addr_w, &Press_Addr_ReadData, 1, RepStart);
@@ -619,9 +645,9 @@ void periodicCallback(void)
             BM1383_Var  = (Press_Content_ReadData[0]<<3) | (Press_Content_ReadData[1] >> 5);
             BM1383_Deci = ((Press_Content_ReadData[1] & 0x1f) << 6 | ((Press_Content_ReadData[2] >> 2)));
             BM1383_Deci = (float)BM1383_Deci* 0.00048828125;  //0.00048828125 = 2^-11
-            BM1383_Pres_Conv_Out = (BM1383_Var + BM1383_Deci);   //question pending here...
+            BM1383_Pres_Conv_Out = (BM1383_Var + BM1383_Deci);
             
-            len = snprintf((char*) buf, MAX_REPLY_LEN, "Pressure Sensor:");
+            len = snprintf((char*) buf, MAX_REPLY_LEN, "BM1383A Sensor:");
             m_ble.updateCharacteristicValue(m_uart_service_ptr->getRXCharacteristicHandle(), buf, len);
             wait_ms(20);
             
@@ -633,7 +659,36 @@ void periodicCallback(void)
             m_ble.updateCharacteristicValue(m_uart_service_ptr->getRXCharacteristicHandle(), buf, len);
             wait_ms(20);
         }        
-        #endif  
+        #endif
+
+        #ifdef BM1383
+        if (m_ble.getGapState().connected) {
+            //Read color Portion from the IC
+            i2c.write(Press_addr_w, &Press_Addr_ReadData, 1, RepStart);
+            i2c.read(Press_addr_r, &Press_Content_ReadData[0], 6, NoRepStart);
+            
+            BM1383_Temp_Out = (Press_Content_ReadData[0]<<8) | (Press_Content_ReadData[1]);
+            BM1383_Temp_Conv_Out = (float)BM1383_Temp_Out/32;
+            
+            BM1383_Var  = (Press_Content_ReadData[2]<<3) | (Press_Content_ReadData[3] >> 5);
+            BM1383_Deci = ((Press_Content_ReadData[3] & 0x1f) << 6 | ((Press_Content_ReadData[4] >> 2)));
+            BM1383_Deci = (float)BM1383_Deci* 0.00048828125;  //0.00048828125 = 2^-11
+            BM1383_Pres_Conv_Out = (BM1383_Var + BM1383_Deci);
+            
+            len = snprintf((char*) buf, MAX_REPLY_LEN, "BM1383 Sensor:");
+            m_ble.updateCharacteristicValue(m_uart_service_ptr->getRXCharacteristicHandle(), buf, len);
+            wait_ms(20);
+            
+            len = snprintf((char*) buf, MAX_REPLY_LEN, "  Temp= %0.2f C", BM1383_Temp_Conv_Out);
+            m_ble.updateCharacteristicValue(m_uart_service_ptr->getRXCharacteristicHandle(), buf, len);
+            wait_ms(20);
+            
+            len = snprintf((char*) buf, MAX_REPLY_LEN, "  Pres= %0.2f hPa", BM1383_Pres_Conv_Out);
+            m_ble.updateCharacteristicValue(m_uart_service_ptr->getRXCharacteristicHandle(), buf, len);
+            wait_ms(20);
+        }        
+        #endif
+		
         i++;
     }
 	
@@ -876,7 +931,13 @@ int main(void)
     i2c.write(KX122_addr_w, &KX122_Accel_CNTL2[0], 2, false);
     #endif
     
-    #ifdef Pressure
+    #ifdef BM1383A
+    i2c.write(Press_addr_w, &PWR_DOWN[0], 2, false);
+    i2c.write(Press_addr_w, &SLEEP[0], 2, false);
+    i2c.write(Press_addr_w, &Mode_Control[0], 2, false);
+    #endif
+	
+	#ifdef BM1383
     i2c.write(Press_addr_w, &PWR_DOWN[0], 2, false);
     i2c.write(Press_addr_w, &SLEEP[0], 2, false);
     i2c.write(Press_addr_w, &Mode_Control[0], 2, false);
