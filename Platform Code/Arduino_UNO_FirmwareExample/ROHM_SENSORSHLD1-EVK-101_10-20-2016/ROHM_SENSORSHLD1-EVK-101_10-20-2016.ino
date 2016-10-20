@@ -1,7 +1,7 @@
 /*------------------------------------------------------------------------------
  ROHM Multi-Sensor Shield Board - Sensor Output Application
  
-    Copyright (C) 2015 ROHM USDC Applications Engineering Team
+    Copyright (C) 2016 ROHM USDC Applications Engineering Team
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -49,7 +49,7 @@ First Revision Posted to Git on 15 June 2015
 // ----- Included Files -----
 //#include <Wire.h>         //Default I2C Library
 
-#define SCL_PIN 5  //A5       //Note that if you are using the Accel/Mag Sensor, you will need to download and
+#define SCL_PIN 5  //A5       //Note that if you are using the I2C based sensors, you will need to download and
 #define SCL_PORT PORTC    //install the "SoftI2CMaster" as "Wire" does not support repeated start...
 #define SDA_PIN 4  //A4         //References:
 #define SDA_PORT PORTC    //  http://playground.arduino.cc/Main/SoftwareI2CLibrary
@@ -400,36 +400,19 @@ void setup()
   
   //----- Start Initialization for KX122 Accel Sensor -----  
 #ifdef KX122
-  //1. CNTL1 (0x18) loaded with 0x41
-  //2. ODCNTL (0x1B) loaded with 0x02
-  //3. CNTL3 (0x1A) loaded with 0xD8
-  //4. TILT_TIMER (0x22) loaded with 0x01
-  //5. CNTL1 (0x18) loaded with 0xC1 (Enable bit on)
+  //1. CNTL1 (0x18) loaded with 0x40 (Set high resolution bit to 1)
+  //2. CNTL1 (0x18) loaded with 0xC0 (Enable bit on)
   
   i2c_start(KX122_DeviceAddress);  //This needs the 8 bit address (7bit Device Address + RW bit... Read = 1, Write = 0)
   i2c_write(0x18);
-  i2c_write(0x41);
+  i2c_write(0x40);
   i2c_stop();
   
   i2c_start(KX122_DeviceAddress);  //This needs the 8 bit address (7bit Device Address + RW bit... Read = 1, Write = 0)
-  i2c_write(0x1B);
-  i2c_write(0x02);
-  i2c_stop();
-  
-  i2c_start(KX122_DeviceAddress);  //This needs the 8 bit address (7bit Device Address + RW bit... Read = 1, Write = 0)
-  i2c_write(0x1A);
-  i2c_write(0xD8);
+  i2c_write(0x18);
+  i2c_write(0xC0);
   i2c_stop();
 
-  i2c_start(KX122_DeviceAddress);  //This needs the 8 bit address (7bit Device Address + RW bit... Read = 1, Write = 0)
-  i2c_write(0x22);
-  i2c_write(0x01);
-  i2c_stop();
-  
-  i2c_start(KX122_DeviceAddress);  //This needs the 8 bit address (7bit Device Address + RW bit... Read = 1, Write = 0)
-  i2c_write(0x18);
-  i2c_write(0xC1);
-  i2c_stop();
 #endif
   //----- END Initialization for KX122 Accel Sensor -----
   
