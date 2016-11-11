@@ -15,21 +15,44 @@
 
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
- 
- This program reads the value of the connected ROHM Sensors on the Multi-sensor Shield and 
- returns the sensor output through the serial port
- 
- Confirmed on Arduino UNO Board
- Rework Required:
-   1. The Arduino UNO's I2C input pins are routed to A4 and A5 on the Arduino UNO board.
-       Thus, to make sure this does not conflict on our board, we need to remove jumper pins connected to A4/A5
-       AKA. REMOVE R31 and R32
-   2. Similarly above, since we removed the connection for A4, we need to connect ADC1 (or UV Sensor output) to the Arduino.
-       Thus, this code expects for A4 to be re-routed to A0.
-       We do this by removing R27 and by routing the top resistor pad of R31 to the bottom resistor pad of R27 (
+
+    ---Description---
+     This program reads the value of the connected ROHM Sensors on the Multi-sensor Shield and 
+     returns the sensor output through the arduino's serial port terminal (115200 Baud)
+
+     ---Debugging Definitions---
+     Using the default code will return all sensor values back for all sensors on the shield.
+     You can remove sensor returns by commenting out the appropriate #defines for the sensors you do not want to return data for
+     Note: using the #define keywords is also a good way to find where a particular sensor is being manupulated
+
+   ---Demo Mode Definitions---
+   There are two key parameters that this sample application can run, CSVOutput and SensorSamplePeriod
+  
+   CSVOutput can be used to format the UART output to the terminal application.
+    If CSVOutput is NOT defined or commented out, the application will return the data to the terminal in a manner that is easy to read.
+      This Option is good for live demos of the shield or when looking at live data values of the sensor
+    If CSVOutput is defined, the application will return the data to the terminal in CSV format to be saved by a terminal application.
+      When logging, we recommend resarting the board, when you start logging in order to get the header information correct
+      See the document "ROHM_SENSORSHLD1-EVK-101_LoggingManual_2016-11-10.pdf" for additional information
+      
+    SensorSamplePeriod can be used to adjust the timing between each sensor read.
+      This value adds a delay to the end of the main loop
+      This value can be formatter in ms
+      This value applies to both CSVOutput modes and will operate regardless of the mode set
+   
+   ---Rework Required on the Arduino UNO Board ---
+   Confirmed on Arduino UNO Board
+   Rework Required:
+     1. The Arduino UNO's I2C input pins are routed to A4 and A5 on the Arduino UNO board.
+         Thus, to make sure this does not conflict on our board, we need to remove jumper pins connected to A4/A5
+         AKA. REMOVE R31 and R32
+     2. Similarly above, since we removed the connection for A4, we need to connect ADC1 (or UV Sensor output) to the Arduino.
+         Thus, this code expects for A4 to be re-routed to A0.
+         We do this by removing R27 and by routing the top resistor pad of R31 to the bottom resistor pad of R27 (
  
 First Revision Posted to Git on 15 June 2015
  by ROHM USDC Applications Engineering Team
+Updated 10 November 2016
 
 ------------------------------------------------------------------------------*/
 
@@ -38,13 +61,17 @@ First Revision Posted to Git on 15 June 2015
 #define AnalogUV    //ML8511
 #define HallSen     //BU52014
 #define KMX62       //KMX62
-//#define Pressure    //BM1383AGLV
-#define PressureOld    //BM1383GLV
+  //#define Pressure    //BM1383AGLV  //Use this definition witn non-yellow stickered SHLD1 board
+#define PressureOld    //BM1383GLV  //Use this definition with yellow stickered SHLD1 board
 #define ALSProx     //RPR-0521
 #define Color       //BH1745
 #define KX122       //KX122
-#define KXG03       //KXG03      //Need to FIX!  
+#define KXG03       //KXG03
 #define MagField    //BM1422
+
+// ----- Demo Mode Definitions -----
+//#define CSVOutput
+#define SensorSamplePeriod  500 //in ms
 
 // ----- Included Files -----
 //#include <Wire.h>         //Default I2C Library
@@ -72,6 +99,8 @@ int ADCpin_AnalogUV = A0;
 int sensorValue = 0;
 float sensorConvert = 0;
 unsigned int j;
+unsigned int lineClear = 0;
+double intervalTime = 0;
 
 //Digital Input Globals - Hall Sensor
 #ifdef HallSen
@@ -489,24 +518,84 @@ void setup()
   i2c_write(0x1D);
   i2c_write(0x40);
   i2c_stop();
-
-
 #endif
+
+  //Prepare Logging Header
+  #ifdef CSVOutput
+  Serial.write("Sample Time (s),");
+  
+    #ifdef AnalogTemp
+    Serial.write("BDE0600G Temp (degrees C),");
+    #endif
+    
+    #ifdef AnalogUV
+    Serial.write("ML8511 UV Sensor (mW/cm2),");
+    #endif
+    
+    #ifdef HallSen
+    Serial.write("BU52011HFV South Detect (0 = mag present; 1 = no Mag field),BU52011HFV North Detect (0 = mag present; 1 = no Mag field),");
+    #endif
+    
+    #ifdef KMX62
+    Serial.write("KMX62 Accel Xout (g),KMX62 Accel Yout (g),KMX62 Accel Zout (g),KMX62 Mag Xout (uT),KMX62 Mag Yout (uT),KMX62 Mag Zout (uT),");
+    #endif
+    
+    #ifdef Pressure
+    Serial.write("BM1383A Temp (degrees C),BM1383A Pressure (hPa),");
+    #endif
+    
+    #ifdef PressureOld
+    Serial.write("BM1383 Temp (degrees C),BM1383 Pressure (hPa),");
+    #endif
+    
+    #ifdef ALSProx
+    Serial.write("RPR-0521 Proximity (ADC Count),RPR-0521 Ambient Light Sensor (Lx),");
+    #endif 
+    
+    #ifdef Color
+    Serial.write("BH1745 Color RED (ADC Count),BH1745 Color GREEN (ADC Count),BH1745 Color BLUE (ADC Count),");
+    #endif
+    
+    #ifdef KX122
+    Serial.write("KX122 Accel Xout (g),KX122 Accel Yout (g),KX122 Accel Zout (g),");
+    #endif
+    
+    #ifdef KXG03
+    Serial.write("KXG03 Gyro X (deg/sec),KXG03 Gyro Y (deg/sec),KXG03 Gyro Z (deg/sec),");
+    #endif
+    
+    #ifdef MagField
+    Serial.write("BM1422 Mag Xout (uT),BM1422 Mag Yout (uT),BM1422 Mag Zout (uT),");
+    #endif
+  
+  Serial.write(0x0A);  //Print Line Feed
+  Serial.write(0x0D);  //Print Carrage Return
+  #endif
 
 }
 
 void loop()
 {
+  /* //How to use the Ardiino LED
   digitalWrite(13, HIGH);   // turn the LED on (HIGH is the voltage level)
   delay(250);              // wait for 250ms
   digitalWrite(13, LOW);    // turn the LED off by making the voltage LOW
   delay(250);              // wait for 250ms
+  */
 
+  #ifndef CSVOutput
   //Clear the Display to make data easier to read
-  for(j = 0; j<26; j++){
+  for(j = 0; j<lineClear; j++){
     Serial.write("\033[F");
     Serial.write("\033[J");
   }
+  lineClear = 0;
+  #endif
+
+  #ifdef CSVOutput
+  Serial.print(intervalTime);
+  Serial.write(",");
+  #endif
   
   //---------- Start Code for Reading BDE0600G Analog Temperature Sensor ----------
   #ifdef AnalogTemp
@@ -536,13 +625,24 @@ void loop()
   //        ADC_Voltage = sensorValue * 0.004925
   //        Temperature = (ADC_Voltage - 1.753)/(-0.01068) + 30
 
+  
   sensorConvert = (float)sensorValue * 0.004925;
   sensorConvert = (sensorConvert - 1.753)/(-0.01068)+30;
+  
+  #ifndef CSVOutput
   Serial.write("BDE0600G Temp = ");
   Serial.print(sensorConvert);
   Serial.write(" degC");
   Serial.write(0x0A); //Print Line Feed
   Serial.write(0x0D); //Print Carrage Return
+  lineClear += 1;
+  #endif
+
+  #ifdef CSVOutput
+  Serial.print(sensorConvert);
+  Serial.write(",");
+  #endif
+  
   #endif
   //---------- End Code for Reading BDE0600G Analog Temperature Sensor ----------
   
@@ -574,11 +674,21 @@ void loop()
 
   sensorConvert = (float)sensorValue * 0.004925;
   sensorConvert = (sensorConvert - 2.2)/(0.129)+10;
+
+  #ifndef CSVOutput
   Serial.write("ML8511 UV Sensor = ");
   Serial.print(sensorConvert);
   Serial.write(" mW/cm2");
   Serial.write(0x0A); //Print Line Feed
   Serial.write(0x0D); //Print Carrage Return
+  lineClear += 1;
+  #endif
+
+  #ifdef CSVOutput
+  Serial.print(sensorConvert);
+  Serial.write(",");
+  #endif
+  
   #endif
   //---------- End Code for Reading ML8511 Analog UV Sensor ----------
   
@@ -589,16 +699,35 @@ void loop()
   //Connect Pin1 of Hall Sensor Header U111 to Arduino Pin2
   //Connect Pin5 of Hall Sensor Header U111 to Arduino Pin3
   Hall_Out0 = digitalRead(2);
+
+  #ifndef CSVOutput
   Serial.write("BU52011HFV South Detect = ");
   Serial.print(Hall_Out0);
   Serial.write(0x0A); //Print Line Feed
   Serial.write(0x0D); //Print Carrage Return
+  lineClear += 1;
+  #endif
+
+  #ifdef CSVOutput
+  Serial.print(Hall_Out0);
+  Serial.write(",");
+  #endif
   
   Hall_Out1 = digitalRead(3);
+
+  #ifndef CSVOutput
   Serial.write("BU52011HFV North Detect = ");
   Serial.print(Hall_Out1);
   Serial.write(0x0A); //Print Line Feed
   Serial.write(0x0D); //Print Carrage Return
+  lineClear += 1;
+  #endif
+
+  #ifdef CSVOutput
+  Serial.print(Hall_Out1);
+  Serial.write(",");
+  #endif
+  
   #endif
   //---------- End Code for Reading BU52011HFV Hall Sensor ----------
   
@@ -654,13 +783,9 @@ void loop()
   MEMS_Accel_Yout = (MEMS_Accel_Yout_highByte<<8) | (MEMS_Accel_Yout_lowByte);
   MEMS_Accel_Zout = (MEMS_Accel_Zout_highByte<<8) | (MEMS_Accel_Zout_lowByte);
   
-  //Note: Conversion to G is as follows:
-  //      Axis_ValueInG = MEMS_Accel_axis / 1024
-  //      However, since we did not remove the LSB previously, we need to divide by 4 again
-  //      Thus, we will divide the output by 4095 (1024*4) to convert and cancel out the LSB
-  MEMS_Accel_Conv_Xout = (float)MEMS_Accel_Xout/4096/2;
-  MEMS_Accel_Conv_Yout = (float)MEMS_Accel_Yout/4096/2;
-  MEMS_Accel_Conv_Zout = (float)MEMS_Accel_Zout/4096/2;
+  MEMS_Accel_Conv_Xout = (float)MEMS_Accel_Xout/8192;
+  MEMS_Accel_Conv_Yout = (float)MEMS_Accel_Yout/8192;
+  MEMS_Accel_Conv_Zout = (float)MEMS_Accel_Zout/8192;
   
   /*  //Uncomment if you want to see the Raw Sensor Output
   Serial.write("Digital MEMS Raw Accel Xout = ");
@@ -677,6 +802,7 @@ void loop()
   Serial.write(0x0D);  //Print Carrage Return
   */
 
+  #ifndef CSVOutput
   Serial.write("KMX62 Accel Xout = ");
   Serial.print(MEMS_Accel_Conv_Xout);
   Serial.write(" g");
@@ -691,7 +817,18 @@ void loop()
   Serial.print(MEMS_Accel_Conv_Zout);
   Serial.write(" g");
   Serial.write(0x0A);  //Print Line Feed
-  Serial.write(0x0D);  //Print Carrage Return  
+  Serial.write(0x0D);  //Print Carrage Return
+  lineClear += 3;
+  #endif
+
+  #ifdef CSVOutput
+  Serial.print(MEMS_Accel_Conv_Xout);
+  Serial.write(",");
+  Serial.print(MEMS_Accel_Conv_Yout);
+  Serial.write(",");
+  Serial.print(MEMS_Accel_Conv_Zout);
+  Serial.write(",");
+  #endif
   
   // Start Getting Data from Mag Sensor
   i2c_start(KMX62_DeviceAddress);
@@ -705,19 +842,13 @@ void loop()
   MEMS_Mag_Zout_highByte = i2c_read(true);
   i2c_stop();
   
-  //Note: The highbyte and low byte return a 14bit value, dropping the two LSB in the Low byte.
-  //      However, because we need the signed value, we will adjust the value when converting to "g"
   MEMS_Mag_Xout = (MEMS_Mag_Xout_highByte<<8) | (MEMS_Mag_Xout_lowByte);
   MEMS_Mag_Yout = (MEMS_Mag_Yout_highByte<<8) | (MEMS_Mag_Yout_lowByte);
   MEMS_Mag_Zout = (MEMS_Mag_Zout_highByte<<8) | (MEMS_Mag_Zout_lowByte);
   
-  //Note: Conversion to G is as follows:
-  //      Axis_ValueInG = MEMS_Accel_axis / 1024
-  //      However, since we did not remove the LSB previously, we need to divide by 4 again
-  //      Thus, we will divide the output by 4095 (1024*4) to convert and cancel out the LSB
-  MEMS_Mag_Conv_Xout = (float)MEMS_Mag_Xout*0.146;
-  MEMS_Mag_Conv_Yout = (float)MEMS_Mag_Yout*0.146;
-  MEMS_Mag_Conv_Zout = (float)MEMS_Mag_Zout*0.146;
+  MEMS_Mag_Conv_Xout = (float)MEMS_Mag_Xout/27.30666619;
+  MEMS_Mag_Conv_Yout = (float)MEMS_Mag_Yout/27.30666619;
+  MEMS_Mag_Conv_Zout = (float)MEMS_Mag_Zout/27.30666619;
   
   /*  //Uncomment if you want to see the Raw Sensor Output  
   Serial.write("Digital MEMS Raw Mag Xout = ");
@@ -732,8 +863,10 @@ void loop()
   Serial.print(MEMS_Mag_Zout);
   Serial.write(0x0A);  //Print Line Feed
   Serial.write(0x0D);  //Print Carrage Return
+  lineClear += 3;
   */
-
+  
+  #ifndef CSVOutput
   Serial.write("KMX62 Mag Xout = ");
   Serial.print(MEMS_Mag_Conv_Xout);
   Serial.write(" uT");
@@ -748,7 +881,18 @@ void loop()
   Serial.print(MEMS_Mag_Conv_Zout);
   Serial.write(" uT");
   Serial.write(0x0A);  //Print Line Feed
-  Serial.write(0x0D);  //Print Carrage Return  
+  Serial.write(0x0D);  //Print Carrage Return
+  lineClear += 3;
+  #endif
+
+  #ifdef CSVOutput
+  Serial.print(MEMS_Mag_Conv_Xout);
+  Serial.write(",");
+  Serial.print(MEMS_Mag_Conv_Yout);
+  Serial.write(",");
+  Serial.print(MEMS_Mag_Conv_Zout);
+  Serial.write(",");
+  #endif
   
   #endif
   //---------- END Code for Reading KMX62 Kionix Accelerometer+Mag Sensor ----------    
@@ -783,7 +927,8 @@ void loop()
   BM1383_Deci = ((BM1383_Pres_lowByte & 0x1f) << 6 | ((BM1383_Pres_leastByte >> 2)));
   BM1383_Deci = (float)BM1383_Deci* 0.00048828125;  //0.00048828125 = 2^-11
   BM1383_Pres_Conv_Out = (BM1383_Var + BM1383_Deci);   //question pending here...
- 
+
+  #ifndef CSVOutput
   Serial.write("BM1383 (Temp) = ");
   Serial.print(BM1383_Temp_Conv_Out);
   Serial.write(" degC");
@@ -794,8 +939,17 @@ void loop()
   Serial.write(" hPa");
   Serial.write(0x0A);  //Print Line Feed
   Serial.write(0x0D);  //Print Carrage Return
+  lineClear += 2;
+  #endif
+
+  #ifdef CSVOutput
+  Serial.print(BM1383_Temp_Conv_Out);
+  Serial.write(",");
+  Serial.print(BM1383_Pres_Conv_Out);
+  Serial.write(",");
+  #endif
   
-   #endif
+  #endif
   //---------- END Code for Reading BM1383A Pressure Sensor ----------    
 
   //---------- Start Code for Reading BM1383 Pressure Sensor ----------  
@@ -821,7 +975,8 @@ void loop()
   BM1383_Deci = ((BM1383_Pres_lowByte & 0x1f) << 6 | ((BM1383_Pres_leastByte >> 2)));
   BM1383_Deci = (float)BM1383_Deci* 0.00048828125;  //0.00048828125 = 2^-11
   BM1383_Pres_Conv_Out = (BM1383_Var + BM1383_Deci);   //question pending here...
- 
+
+  #ifndef CSVOutput
   Serial.write("BM1383 (Temp) = ");
   Serial.print(BM1383_Temp_Conv_Out);
   Serial.write(" degC");
@@ -832,8 +987,17 @@ void loop()
   Serial.write(" hPa");
   Serial.write(0x0A);  //Print Line Feed
   Serial.write(0x0D);  //Print Carrage Return
+  lineClear += 2;
+  #endif
   
-   #endif
+  #ifdef CSVOutput
+  Serial.print(BM1383_Temp_Conv_Out);
+  Serial.write(",");
+  Serial.print(BM1383_Pres_Conv_Out);
+  Serial.write(",");
+  #endif
+  
+  #endif
   //---------- END Code for Reading BM1383 Pressure Sensor ----------
 
    //----- Start Code for Reading RPR-0521 ALS/PROX Sensor -----
@@ -873,6 +1037,8 @@ void loop()
   else{
     RPR0521_ALS_OUT = 0;
   }
+
+  #ifndef CSVOutput
   Serial.write("RPR-0521 (Prox) = ");
   Serial.print(RPR0521_PS_RAWOUT);
   Serial.write(" ADC Counts");
@@ -883,6 +1049,15 @@ void loop()
   Serial.write(" lx");
   Serial.write(0x0A);  //Print Line Feed
   Serial.write(0x0D);  //Print Carrage Return
+  lineClear += 2;
+  #endif
+
+  #ifdef CSVOutput
+  Serial.print(RPR0521_PS_RAWOUT);
+  Serial.write(",");
+  Serial.print(RPR0521_ALS_OUT);
+  Serial.write(",");
+  #endif
   
   #endif  
   //----- END Code for Reading RPR-0521 ALS/PROX Sensor -----
@@ -905,7 +1080,8 @@ void loop()
   BH1745_RED_OUT = (BH1745_RED_HB<<8) | (BH1745_RED_LB);
   BH1745_GRN_OUT = (BH1745_GRN_HB<<8) | (BH1745_GRN_LB);
   BH1745_BLU_OUT = (BH1745_BLU_HB<<8) | (BH1745_BLU_LB);
-  
+
+  #ifndef CSVOutput
   Serial.write("BH1745 (Red) = ");
   Serial.print(BH1745_RED_OUT);
   Serial.write(" ADC Counts");
@@ -921,6 +1097,17 @@ void loop()
   Serial.write(" ADC Counts");
   Serial.write(0x0A);  //Print Line Feed
   Serial.write(0x0D);  //Print Carrage Return
+  lineClear += 3;
+  #endif
+
+  #ifdef CSVOutput
+  Serial.print(BH1745_RED_OUT);
+  Serial.write(",");
+  Serial.print(BH1745_GRN_OUT);
+  Serial.write(",");
+  Serial.print(BH1745_BLU_OUT);
+  Serial.write(",");
+  #endif
   
   #endif
   //----- END Code for Reading Color Sensor -----
@@ -945,7 +1132,8 @@ void loop()
   KX122_Accel_X_OUT = (float)KX122_Accel_X_RawOUT / 16384;
   KX122_Accel_Y_OUT = (float)KX122_Accel_Y_RawOUT / 16384;
   KX122_Accel_Z_OUT = (float)KX122_Accel_Z_RawOUT / 16384;
-  
+
+  #ifndef CSVOutput
   Serial.write("KX122 (X) = ");
   Serial.print(KX122_Accel_X_OUT);
   Serial.write(" g");
@@ -961,6 +1149,17 @@ void loop()
   Serial.write(" g");
   Serial.write(0x0A);  //Print Line Feed
   Serial.write(0x0D);  //Print Carrage Return
+  lineClear += 3;
+  #endif
+
+  #ifdef CSVOutput
+  Serial.print(KX122_Accel_X_OUT);
+  Serial.write(",");
+  Serial.print(KX122_Accel_Y_OUT);
+  Serial.write(",");
+  Serial.print(KX122_Accel_Z_OUT);
+  Serial.write(",");
+  #endif
 
 #endif
   //----- END Code for Reading KX122 Accel Sensor -----
@@ -1001,6 +1200,28 @@ if (t == 1){
 
   t = 0;
 
+  #ifndef CSVOutput
+  Serial.write("KXG03 Gyro (X) = 0");
+  Serial.write(" deg/sec");
+  Serial.write(0x0A);  //Print Line Feed
+  Serial.write(0x0D);  //Print Carrage Return
+  Serial.write("KXG03 Gyro (Y) = 0");
+  Serial.write(" deg/sec");
+  Serial.write(0x0A);  //Print Line Feed
+  Serial.write(0x0D);  //Print Carrage Return
+  Serial.write("KXG03 Gyro (Z) = 0");
+  Serial.write(" deg/sec");
+  Serial.write(0x0A);  //Print Line Feed
+  Serial.write(0x0D);  //Print Carrage Return
+  lineClear += 3;
+  #endif
+
+  #ifdef CSVOutput
+  Serial.write("0,");
+  Serial.write("0,");
+  Serial.write("0,");
+  #endif
+
 }
 
   // Start Getting Data from KXG03 Sensor
@@ -1029,6 +1250,7 @@ else {
   KXG03_Gyro_Y = (float)KXG03_Gyro_Y_RawOUT2 * 0.007813 + 0.000004;
   KXG03_Gyro_Z = (float)KXG03_Gyro_Z_RawOUT2 * 0.007813 + 0.000004; 
 
+  #ifndef CSVOutput
   Serial.write("KXG03 Gyro (X) = ");
   Serial.print(KXG03_Gyro_X);
   Serial.write(" deg/sec");
@@ -1044,7 +1266,18 @@ else {
   Serial.write(" deg/sec");
   Serial.write(0x0A);  //Print Line Feed
   Serial.write(0x0D);  //Print Carrage Return
+  lineClear += 3;
+  #endif
 
+  #ifdef CSVOutput
+  Serial.print(KXG03_Gyro_X);
+  Serial.write(",");
+  Serial.print(KXG03_Gyro_Y);
+  Serial.write(",");
+  Serial.print(KXG03_Gyro_Z);
+  Serial.write(",");
+  #endif
+  
   /*
   //Accel Data 
   i2c_start(KXG03_DeviceAddress);
@@ -1104,24 +1337,48 @@ else {
   BM1422_Mag_X_RawOUT = (BM1422_Mag_X_HB<<8) | (BM1422_Mag_X_LB);
   BM1422_Mag_Y_RawOUT = (BM1422_Mag_Y_HB<<8) | (BM1422_Mag_Y_LB);
   BM1422_Mag_Z_RawOUT = (BM1422_Mag_Z_HB<<8) | (BM1422_Mag_Z_LB);
+  
+  BM1422_Mag_X = BM1422_Mag_X_RawOUT * 0.042;
+  BM1422_Mag_Y = BM1422_Mag_Y_RawOUT * 0.042;
+  BM1422_Mag_Z = BM1422_Mag_Z_RawOUT * 0.042;
 
+  #ifndef CSVOutput
   Serial.write("BM1422 Mag (X) = ");
-  Serial.print(BM1422_Mag_X_RawOUT);
+  Serial.print(BM1422_Mag_X);
+  Serial.write("uT");
   Serial.write(0x0A);  //Print Line Feed
   Serial.write(0x0D);  //Print Carrage Return
   Serial.write("BM1422 Mag (Y) = ");
-  Serial.print(BM1422_Mag_Y_RawOUT);
+  Serial.print(BM1422_Mag_Y);
+  Serial.write("uT");
   Serial.write(0x0A);  //Print Line Feed
   Serial.write(0x0D);  //Print Carrage Return
   Serial.write("BM1422 Mag (Z) = ");
-  Serial.print(BM1422_Mag_Z_RawOUT);
+  Serial.print(BM1422_Mag_Z);
+  Serial.write("uT");
   Serial.write(0x0A);  //Print Line Feed
   Serial.write(0x0D);  //Print Carrage Return
-#endif
+  lineClear += 3;
+  #endif
 
+  #ifdef CSVOutput
+  Serial.print(BM1422_Mag_X);
+  Serial.write(",");
+  Serial.print(BM1422_Mag_Y);
+  Serial.write(",");
+  Serial.print(BM1422_Mag_Z);
+  Serial.write(",");
+  #endif
+  
+  #endif
 
-//  Serial.write(0x0A); //Print Line Feed
-//  Serial.write(0x0D); //Print Carrage Return
+  #ifdef CSVOutput
+  intervalTime += (double)SensorSamplePeriod/1000;
+  Serial.write(0x0A); //Print Line Feed
+  Serial.write(0x0D); //Print Carrage Return
+  #endif
+
+  delay(SensorSamplePeriod);  //Add some Loop Delay
 }
 
 void I2C_CheckACK()
