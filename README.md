@@ -18,6 +18,7 @@
     * KIONIX KMX62 – Digital Magnetometer and Accelerometer
     * KIONIX KXG03 – Digital Gyroscope and Accelerometer
     * LAPIS ML8511A – Analog UV Sensor
+		*NOTE: The ML8511 and the ML8511A are OBSOLETE parts with no recommended replacement. Even though we still support this part on shield and you can find information for this sensor here; please beware that this sensor is being obsoleted and should not be used for new design.
     * ROHM RPR-0521 – Digital Ambient Light Sensor and Proximity Sensor
     * ROHM BH1745 – Digital Color Sensor
   * Special Functions:
